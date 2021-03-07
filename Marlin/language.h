@@ -16,7 +16,7 @@
 // 7  Italian
 // 8  Portuguese
 // 9  Finnish
-//10 Chinese
+// 99 Chinese
 
 #ifndef LANGUAGE_CHOICE
 #define LANGUAGE_CHOICE 1  // Pick your language from the list above
@@ -1574,7 +1574,7 @@
 
 #endif
 
-#if LANGUAGE_CHOICE == 10
+#if LANGUAGE_CHOICE == 99
 
 // LCD Menu Messages
 	#define WELCOME_MSG MACHINE_NAME "\x88\x89\x8a\x8b"//准备打印Ready.

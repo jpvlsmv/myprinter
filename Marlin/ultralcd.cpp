@@ -1114,7 +1114,7 @@ void lcd_update()
         u8g.firstPage();
         do
         {
-#if LANGUAGE_CHOICE == 10
+#if LANGUAGE_CHOICE == 99
             u8g.setFont(chinese);
 #else
             u8g.setFont(u8g_font_6x10_marlin);
