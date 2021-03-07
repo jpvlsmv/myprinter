@@ -75,6 +75,13 @@
 	#define MSG_EXTRUDE "Extrude"
 	#define MSG_RETRACT "Retract"
 	#define MSG_MOVE_AXIS "Move Axis"
+	#define MSG_MOVE_X "Move X"
+	#define MSG_MOVE_Y "Move Y"
+	#define MSG_MOVE_Z "Move Z"
+	#define MSG_MOVE_E "Extruder"
+	#define MSG_MOVE_01MM "Move 0.1mm"
+	#define MSG_MOVE_1MM "Move 1mm"
+	#define MSG_MOVE_10MM "Move 10mm"
 	#define MSG_SPEED "Speed"
 	#define MSG_NOZZLE "Nozzle"
 	#define MSG_NOZZLE1 "Nozzle2"
@@ -144,6 +151,12 @@
     #define MSG_ZPROBE_OUT "ZProbe Outside Bed"
     #define MSG_POSITION_UNKNOWN "Home X/Y before Z"
     #define MSG_ZPROBE_ZOFFSET "Z Offset"
+	#define MSG_BABYSTEP_X "Babystep X"
+	#define MSG_BABYSTEP_Y "Babystep Y"
+	#define MSG_BABYSTEP_Z "Babystep Z"
+	#define MSG_ENDSTOP_ABORT "Endstop abort"
+	#define MSG_CONTRAST "Contrast"
+
 // Serial Console Messages
 
 	#define MSG_Enqueing "enqueing \""
@@ -215,6 +228,9 @@
 	#define MSG_ENDSTOPS_HIT "endstops hit: "
 	#define MSG_ERR_COLD_EXTRUDE_STOP " cold extrusion prevented"
 	#define MSG_ERR_LONG_EXTRUDE_STOP " too long extrusion prevented"
+	#define MSG_BABYSTEPPING_X "Babystepping X"
+	#define MSG_BABYSTEPPING_Y "Babystepping Y"
+	#define MSG_BABYSTEPPING_Z "Babystepping Z"
 
 #endif
 
@@ -240,6 +256,13 @@
 	#define MSG_EXTRUDE "Ekstruzja"
 	#define MSG_RETRACT "Cofanie"
 	#define MSG_MOVE_AXIS "Ruch osi"
+	#define MSG_MOVE_X "Move X"
+	#define MSG_MOVE_Y "Move Y"
+	#define MSG_MOVE_Z "Move Z"
+	#define MSG_MOVE_E "Extruder"
+	#define MSG_MOVE_01MM "Move 0.1mm"
+	#define MSG_MOVE_1MM "Move 1mm"
+	#define MSG_MOVE_10MM "Move 10mm"
 	#define MSG_SPEED "Predkosc"
 	#define MSG_NOZZLE "Dysza"
 	#define MSG_NOZZLE1 "Dysza2"
@@ -312,6 +335,11 @@
     #define MSG_ZPROBE_OUT "Probkuj Z poza lozem"
     #define MSG_POSITION_UNKNOWN "Domuj X/Y przed Z"
     #define MSG_ZPROBE_ZOFFSET "Z Offset"
+	#define MSG_BABYSTEP_X "Babystep X"
+	#define MSG_BABYSTEP_Y "Babystep Y"
+	#define MSG_BABYSTEP_Z "Babystep Z"
+	#define MSG_ENDSTOP_ABORT "Endstop abort"
+	#define MSG_CONTRAST "Contrast"
 
 // Serial Console Messages
 
@@ -384,6 +412,9 @@
 	#define MSG_ENDSTOPS_HIT "Wylacznik krancowy zostal wyzwolony na pozycji: "
 	#define MSG_ERR_COLD_EXTRUDE_STOP " uniemozliwiono zimna ekstruzje"
 	#define MSG_ERR_LONG_EXTRUDE_STOP " uniemozliwiono zbyt dluga ekstruzje"
+	#define MSG_BABYSTEPPING_X "Babystepping X"
+	#define MSG_BABYSTEPPING_Y "Babystepping Y"
+	#define MSG_BABYSTEPPING_Z "Babystepping Z"
 
 #endif
 
@@ -410,6 +441,13 @@
 	#define MSG_PREHEAT_PLA "Prechauffage PLA"
 	#define MSG_PREHEAT_ABS "Prechauffage ABS"
 	#define MSG_MOVE_AXIS "Deplacer un axe"
+	#define MSG_MOVE_X "Move X"
+	#define MSG_MOVE_Y "Move Y"
+	#define MSG_MOVE_Z "Move Z"
+	#define MSG_MOVE_E "Extruder"
+	#define MSG_MOVE_01MM "Move 0.1mm"
+	#define MSG_MOVE_1MM "Move 1mm"
+	#define MSG_MOVE_10MM "Move 10mm"
 	#define MSG_SPEED " Vitesse"
 	#define MSG_NOZZLE "Buse"
 	#define MSG_NOZZLE1 "Buse2"
@@ -480,6 +518,11 @@
     #define MSG_ZPROBE_OUT "ZProbe Outside Bed"
     #define MSG_POSITION_UNKNOWN "Home X/Y before Z"
     #define MSG_ZPROBE_ZOFFSET "Z Offset"
+	#define MSG_BABYSTEP_X "Babystep X"
+	#define MSG_BABYSTEP_Y "Babystep Y"
+	#define MSG_BABYSTEP_Z "Babystep Z"
+	#define MSG_ENDSTOP_ABORT "Endstop abort"
+	#define MSG_CONTRAST "Contrast"
 
 // Serial Console Messages
 
@@ -552,6 +595,9 @@
 	#define MSG_ENDSTOPS_HIT "Fin de course atteint: "
 	#define MSG_ERR_COLD_EXTRUDE_STOP " Extrusion a froid evitee"
 	#define MSG_ERR_LONG_EXTRUDE_STOP " Extrusion longue evitee"
+	#define MSG_BABYSTEPPING_X "Babystepping X"
+	#define MSG_BABYSTEPPING_Y "Babystepping Y"
+	#define MSG_BABYSTEPPING_Z "Babystepping Z"
 	
 #endif
 
@@ -579,6 +625,13 @@
 	#define MSG_EXTRUDE          "Extrude"
 	#define MSG_RETRACT          "Retract"
 	#define MSG_MOVE_AXIS        "Achsen bewegen"
+	#define MSG_MOVE_X           "X bewegen"
+	#define MSG_MOVE_Y           "Y bewegen"
+	#define MSG_MOVE_Z           "Z bewegen"
+	#define MSG_MOVE_E           "Extruder"
+	#define MSG_MOVE_01MM        "0.1mm bewegen"
+	#define MSG_MOVE_1MM         "1mm bewegen"
+	#define MSG_MOVE_10MM        "10mm bewegen"
 	#define MSG_SPEED            "Geschw"
 	#define MSG_NOZZLE           "Düse"
 	#define MSG_NOZZLE1          "Düse2"
@@ -651,6 +704,11 @@
     #define MSG_ZPROBE_OUT "ZProbe Outside Bed"
     #define MSG_POSITION_UNKNOWN "Home X/Y before Z"
     #define MSG_ZPROBE_ZOFFSET "Z Offset"
+	#define MSG_BABYSTEP_X "Babystep X"
+	#define MSG_BABYSTEP_Y "Babystep Y"
+	#define MSG_BABYSTEP_Z "Babystep Z"
+	#define MSG_ENDSTOP_ABORT "Endstop abort"
+	#define MSG_CONTRAST "Contrast"
 	
 // Serial Console Messages
 
@@ -723,6 +781,9 @@
 	#define MSG_ENDSTOPS_HIT "endstops hit: "
 	#define MSG_ERR_COLD_EXTRUDE_STOP " cold extrusion prevented"
 	#define MSG_ERR_LONG_EXTRUDE_STOP " too long extrusion prevented"
+	#define MSG_BABYSTEPPING_X "Babystepping X"
+	#define MSG_BABYSTEPPING_Y "Babystepping Y"
+	#define MSG_BABYSTEPPING_Z "Babystepping Z"
 
 #endif
 
@@ -748,6 +809,13 @@
 	#define MSG_EXTRUDE "Extruir"
 	#define MSG_RETRACT "Retraer"
 	#define MSG_MOVE_AXIS "Mover Ejes"
+	#define MSG_MOVE_X "Move X"
+	#define MSG_MOVE_Y "Move Y"
+	#define MSG_MOVE_Z "Move Z"
+	#define MSG_MOVE_E "Extruder"
+	#define MSG_MOVE_01MM "Move 0.1mm"
+	#define MSG_MOVE_1MM "Move 1mm"
+	#define MSG_MOVE_10MM "Move 10mm"
 	#define MSG_SPEED "Velocidad"
 	#define MSG_NOZZLE "Nozzle"
 	#define MSG_NOZZLE1 "Nozzle2"
@@ -826,6 +894,11 @@
     #define MSG_ZPROBE_OUT "ZProbe Outside Bed"
     #define MSG_POSITION_UNKNOWN "Home X/Y before Z"
     #define MSG_ZPROBE_ZOFFSET "Z Offset"
+	#define MSG_BABYSTEP_X "Babystep X"
+	#define MSG_BABYSTEP_Y "Babystep Y"
+	#define MSG_BABYSTEP_Z "Babystep Z"
+	#define MSG_ENDSTOP_ABORT "Endstop abort"
+	#define MSG_CONTRAST "Contrast"
 
 // Serial Console Messages
 
@@ -897,6 +970,9 @@
 	#define MSG_ENDSTOPS_HIT "Se ha tocado el fin de carril: "
 	#define MSG_ERR_COLD_EXTRUDE_STOP " extrusion fria evitada"
 	#define MSG_ERR_LONG_EXTRUDE_STOP " extrusion demasiado larga evitada"
+	#define MSG_BABYSTEPPING_X "Babystepping X"
+	#define MSG_BABYSTEPPING_Y "Babystepping Y"
+	#define MSG_BABYSTEPPING_Z "Babystepping Z"
 
 #endif
 
@@ -921,6 +997,13 @@
 	#define MSG_EXTRUDE							" Экструзия          "
 	#define MSG_RETRACT							" Откат"
 	#define MSG_MOVE_AXIS						" Движение по осям  \x7E"
+	#define MSG_MOVE_X                          "Move X"
+	#define MSG_MOVE_Y                          "Move Y"
+	#define MSG_MOVE_Z                          "Move Z"
+	#define MSG_MOVE_E                          "Extruder"
+	#define MSG_MOVE_01MM                       "Move 0.1mm"
+	#define MSG_MOVE_1MM                        "Move 1mm"
+	#define MSG_MOVE_10MM                       "Move 10mm"
 	#define MSG_SPEED							" Скорость:"
 	#define MSG_NOZZLE							" \002 Фильера:"
 	#define MSG_NOZZLE1							" \002 Фильера2:"
@@ -991,6 +1074,11 @@
     #define MSG_ZPROBE_OUT "ZProbe Outside Bed"
     #define MSG_POSITION_UNKNOWN "Home X/Y before Z"
     #define MSG_ZPROBE_ZOFFSET "Z Offset"
+	#define MSG_BABYSTEP_X "Babystep X"
+	#define MSG_BABYSTEP_Y "Babystep Y"
+	#define MSG_BABYSTEP_Z "Babystep Z"
+	#define MSG_ENDSTOP_ABORT "Endstop abort"
+	#define MSG_CONTRAST "Contrast"
 
 // Serial Console Messages
 
@@ -1061,6 +1149,9 @@
 	#define MSG_ENDSTOPS_HIT					"концевик сработал: "
 	#define MSG_ERR_COLD_EXTRUDE_STOP			" защита холодной экструзии"
 	#define MSG_ERR_LONG_EXTRUDE_STOP			" защита превышения длинны экструзии"
+	#define MSG_BABYSTEPPING_X "Babystepping X"
+	#define MSG_BABYSTEPPING_Y "Babystepping Y"
+	#define MSG_BABYSTEPPING_Z "Babystepping Z"
 
 #endif
 
@@ -1086,6 +1177,13 @@
 	#define MSG_EXTRUDE              "Estrudi"
 	#define MSG_RETRACT              "Ritrai"
 	#define MSG_MOVE_AXIS            "Muovi Asse"
+	#define MSG_MOVE_X               "Move X"
+	#define MSG_MOVE_Y               "Move Y"
+	#define MSG_MOVE_Z               "Move Z"
+	#define MSG_MOVE_E               "Extruder"
+	#define MSG_MOVE_01MM            "Move 0.1mm"
+	#define MSG_MOVE_1MM             "Move 1mm"
+	#define MSG_MOVE_10MM            "Move 10mm"
 	#define MSG_SPEED                "Velcità"
 	#define MSG_NOZZLE               "Ugello"
 	#define MSG_NOZZLE1              "Ugello2"
@@ -1156,6 +1254,11 @@
     #define MSG_ZPROBE_OUT "ZProbe Outside Bed"
     #define MSG_POSITION_UNKNOWN "Home X/Y before Z"
     #define MSG_ZPROBE_ZOFFSET "Z Offset"
+	#define MSG_BABYSTEP_X "Babystep X"
+	#define MSG_BABYSTEP_Y "Babystep Y"
+	#define MSG_BABYSTEP_Z "Babystep Z"
+	#define MSG_ENDSTOP_ABORT "Endstop abort"
+	#define MSG_CONTRAST "Contrast"
 
 	// Serial Console Messages
 
@@ -1228,6 +1331,9 @@
 	#define MSG_ENDSTOPS_HIT         "Raggiunto il fondo carrello: "
 	#define MSG_ERR_COLD_EXTRUDE_STOP " prevenuta estrusione fredda"
 	#define MSG_ERR_LONG_EXTRUDE_STOP " prevenuta estrusione troppo lunga"
+	#define MSG_BABYSTEPPING_X "Babystepping X"
+	#define MSG_BABYSTEPPING_Y "Babystepping Y"
+	#define MSG_BABYSTEPPING_Z "Babystepping Z"
 
 #endif
 
@@ -1255,6 +1361,13 @@
 	#define MSG_PREHEAT_PLA " pre-aquecer PLA"
 	#define MSG_PREHEAT_ABS " pre-aquecer ABS"
 	#define MSG_MOVE_AXIS " Mover eixo      \x7E"
+	#define MSG_MOVE_X "Move X"
+	#define MSG_MOVE_Y "Move Y"
+	#define MSG_MOVE_Z "Move Z"
+	#define MSG_MOVE_E "Extruder"
+	#define MSG_MOVE_01MM "Move 0.1mm"
+	#define MSG_MOVE_1MM "Move 1mm"
+	#define MSG_MOVE_10MM "Move 10mm"
 	#define MSG_SPEED " Velocidade:"
 	#define MSG_NOZZLE " \002Nozzle:"
 	#define MSG_NOZZLE1 " \002Nozzle2:"
@@ -1330,6 +1443,11 @@
     #define MSG_ZPROBE_OUT "Sonda fora da mesa"
     #define MSG_POSITION_UNKNOWN "Home X/Y antes de Z"
     #define MSG_ZPROBE_ZOFFSET "Z Offset"
+	#define MSG_BABYSTEP_X "Babystep X"
+	#define MSG_BABYSTEP_Y "Babystep Y"
+	#define MSG_BABYSTEP_Z "Babystep Z"
+	#define MSG_ENDSTOP_ABORT "Endstop abort"
+	#define MSG_CONTRAST "Contrast"
 
 // Serial Console Messages
 
@@ -1402,7 +1520,9 @@
 	#define MSG_ENDSTOPS_HIT "O ponto final foi tocado: "
 	#define MSG_ERR_COLD_EXTRUDE_STOP " Extrusao a frio evitada"
 	#define MSG_ERR_LONG_EXTRUDE_STOP " Extrusao muito larga evitada"
-
+	#define MSG_BABYSTEPPING_X "Babystepping X"
+	#define MSG_BABYSTEPPING_Y "Babystepping Y"
+	#define MSG_BABYSTEPPING_Z "Babystepping Z"
 
 #endif
 
@@ -1431,6 +1551,13 @@
 	#define MSG_EXTRUDE "Pursota"
 	#define MSG_RETRACT "Veda takaisin"
 	#define MSG_MOVE_AXIS "Liikuta akseleita"
+	#define MSG_MOVE_X "Move X"
+	#define MSG_MOVE_Y "Move Y"
+	#define MSG_MOVE_Z "Move Z"
+	#define MSG_MOVE_E "Extruder"
+	#define MSG_MOVE_01MM "Move 0.1mm"
+	#define MSG_MOVE_1MM "Move 1mm"
+	#define MSG_MOVE_10MM "Move 10mm"
 	#define MSG_SPEED "Nopeus"
 	#define MSG_NOZZLE "Suutin"
 	#define MSG_NOZZLE1 "Suutin2"
@@ -1500,6 +1627,11 @@
     #define MSG_ZPROBE_OUT "ZProbe Outside Bed"
     #define MSG_POSITION_UNKNOWN "Home X/Y before Z"
     #define MSG_ZPROBE_ZOFFSET "Z Offset"
+	#define MSG_BABYSTEP_X "Babystep X"
+	#define MSG_BABYSTEP_Y "Babystep Y"
+	#define MSG_BABYSTEP_Z "Babystep Z"
+	#define MSG_ENDSTOP_ABORT "Endstop abort"
+	#define MSG_CONTRAST "Contrast"
 
 // Serial Console Messages
 
@@ -1572,6 +1704,11 @@
 	#define MSG_ENDSTOPS_HIT "paatyrajat aktivoitu: "
 	#define MSG_ERR_COLD_EXTRUDE_STOP " kylmana pursotus estetty"
 	#define MSG_ERR_LONG_EXTRUDE_STOP " liian pitka pursotus estetty"
+	#define MSG_BABYSTEPPING_X "Babystepping X"
+	#define MSG_BABYSTEPPING_Y "Babystepping Y"
+	#define MSG_BABYSTEPPING_Z "Babystepping Z"
+	#define MSG_ENDSTOP_ABORT "Endstop abort"
+	#define MSG_CONTRAST "Contrast"
 
 #endif
 
@@ -1738,7 +1875,7 @@
 // LCD Menu Messages
 	#define WELCOME_MSG MACHINE_NAME " Parada."
 	#define MSG_SD_INSERTED "Tarcheta SD Colocada"
-	#define MSG_SD_REMOVETZ "Tarcheta SD Retirada"
+	#define MSG_SD_REMOVED "Tarcheta SD Retirada"
 	#define MSG_MAIN "Menu Prencipal"
 	#define MSG_AUTOSTART " Autostart"
 	#define MSG_DISABLE_STEPPERS "Amortar Motors"
@@ -1754,6 +1891,13 @@
 	#define MSG_EXTRUDE "Extruir"
 	#define MSG_RETRACT "Retraer"
 	#define MSG_MOVE_AXIS "Mover Eixes"
+	#define MSG_MOVE_X "Move X"
+	#define MSG_MOVE_Y "Move Y"
+	#define MSG_MOVE_Z "Move Z"
+	#define MSG_MOVE_E "Extruder"
+	#define MSG_MOVE_01MM "Move 0.1mm"
+	#define MSG_MOVE_1MM "Move 1mm"
+	#define MSG_MOVE_10MM "Move 10mm"
 	#define MSG_SPEED "Velocidat"
 	#define MSG_NOZZLE "Nozzle"
 	#define MSG_NOZZLE1 "Nozzle2"
@@ -1775,25 +1919,24 @@
 	#define MSG_ACC  "Acel"
 	#define MSG_VXY_JERK "Vxy-jerk"
 	#define MSG_VZ_JERK "Vz-jerk"
-	#define MSG_VES_JERK "Ves-jerk"
+	#define MSG_VE_JERK "Ves-jerk"
 	#define MSG_VMAX "Vmax"
 	#define MSG_X "x"
 	#define MSG_Y "y"
 	#define MSG_Z "z"
-	#define MSG_Y "y"
+	#define MSG_E "y"
 	#define MSG_VMIN "Vmin"
 	#define MSG_VTRAV_MIN "VTrav min"
 	#define MSG_AMAX "Amax"
 	#define MSG_A_RETRACT "A-retrac."
 	#define MSG_XSTEPS "X trangos/mm"
 	#define MSG_YSTEPS "Y trangos/mm"
-	#define MSG_ZSTEPS "Z trangos/mm"
-	#define MSG_ESTEPS "Y trangos/mm"
+	#define MSG_ESTEPS "E trangos/mm"
 	#define MSG_RECTRACT "Retraer"
 	#define MSG_TEMPERATURE "Temperatura"
 	#define MSG_MOTION "Movimiento"
 	#define MSG_STORE_EPROM "Alzar Memoria"
-	#define MSG_LOBATZ_EPROM "Cargar Memoria"
+	#define MSG_LOAD_EPROM "Cargar Memoria"
 	#define MSG_RESTORE_FAILSAFE "Rest. d'emerchencia"
 	#define MSG_REFRESH "Tornar a cargar"
 	#define MSG_WATCH "Monitorizar"
@@ -1816,7 +1959,7 @@
 	#define MSG_CONTROL_RETRACT_RECOVER "DesRet +mm"
 	#define MSG_CONTROL_RETRACT_RECOVERF "DesRet F"
 	#define MSG_AUTORETRACT "AutoRetr."
-	#define MSG_FILAMENTCHANGE "Change filament"
+	#define MSG_FILAMENTCHANGE "Cambear"
 	#define MSG_INIT_SDCARD "Encetando. Tarcheta-SD"
 	#define MSG_CNG_SDCARD "Cambiar Tarcheta-SD"
 	#define MSG_RECTRACT_WIDE "Retraer"
@@ -1832,6 +1975,11 @@
     #define MSG_ZPROBE_OUT "ZProbe Outside Bed"
     #define MSG_POSITION_UNKNOWN "Home X/Y before Z"
     #define MSG_ZPROBE_ZOFFSET "Z Offset"
+	#define MSG_BABYSTEP_X "Babystep X"
+	#define MSG_BABYSTEP_Y "Babystep Y"
+	#define MSG_BABYSTEP_Z "Babystep Z"
+	#define MSG_ENDSTOP_ABORT "Endstop abort"
+	#define MSG_CONTRAST "Contrast"
 
 // Serial Console Messages
 
@@ -1843,7 +1991,7 @@
 	#define MSG_SOFTWARE_RESET " Reset por Software"
 	#define MSG_MARLIN "Marlin "
 	#define MSG_AUTHOR " | Autor: "
-	#define MSG_CONFIGURATION_VEYER " Zaguer esvielle: "
+	#define MSG_CONFIGURATION_VER " Zaguer esvielle: "
 	#define MSG_FREE_MEMORY " Memoria libre: "
 	#define MSG_PLANNER_BUFFER_BYTES "  PlannerBufferBytes: "
 	#define MSG_OK "ok"
@@ -1903,6 +2051,10 @@
 	#define MSG_ENDSTOPS_HIT "S'ha tocau a fin de carril: "
 	#define MSG_ERR_COLD_EXTRUDE_STOP " extrusion fria privada"
 	#define MSG_ERR_LONG_EXTRUDE_STOP " extrusion masiau larga privada"
+	#define MSG_BABYSTEPPING_X "Babystepping X"
+	#define MSG_BABYSTEPPING_Y "Babystepping Y"
+	#define MSG_BABYSTEPPING_Z "Babystepping Z"
 
 #endif
+
 #endif // ifndef LANGUAGE_H
