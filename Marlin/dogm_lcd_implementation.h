@@ -41,7 +41,7 @@
 
 /* Russian language not supported yet, needs custom font
 
-#if LANGUAGE_CHOICE == 6
+#if LANGUAGE_CHOICE == ru
 #include "LiquidCrystalRus.h"
 #define LCD_CLASS LiquidCrystalRus
 #else
@@ -49,7 +49,7 @@
 #define LCD_CLASS LiquidCrystal
 #endif
 */
-#if LANGUAGE_CHOICE == 99
+#if LANGUAGE_CHOICE == cn
 // DOGM parameters (size in pixels)
 #define DOG_CHAR_WIDTH			11
 #define DOG_CHAR_HEIGHT			12
@@ -144,7 +144,7 @@ static void lcd_implementation_init()
 			u8g.drawStr(62,19,"V1.0.0 RC2-mm");
 			u8g.setFont(u8g_font_6x10_marlin);
 			u8g.drawStr(62,28,"by ErikZalm");
-  #if LANGUAGE_CHOICE == 99
+  #if LANGUAGE_CHOICE == cn
       u8g.setFont(chinese);
       u8g.drawStr(62,40,"\x84\x85\x86\x87 By");
 			u8g.drawStr(62,52,"\x7f\x80\x81\x82\x83");
@@ -311,7 +311,7 @@ static void lcd_implementation_status_screen()
  u8g.print('%');
 
  // Status line
-#if LANGUAGE_CHOICE == 99
+#if LANGUAGE_CHOICE == cn
  u8g.setFont(chinese);
  u8g.setPrintPos(0,63);
 #else
@@ -344,7 +344,7 @@ static void lcd_implementation_drawmenu_generic(uint8_t row, const char* pstr, c
 		if ((pre_char == '>') || (pre_char == LCD_STR_UPLEVEL[0] ))
 		   {
 			u8g.setColorIndex(1);		// black on white
-#if LANGUAGE_CHOICE == 99
+#if LANGUAGE_CHOICE == cn
 			u8g.drawBox (0, row*DOG_CHAR_HEIGHT + 2, 128, DOG_CHAR_HEIGHT);
 #else
 			u8g.drawBox (0, row*DOG_CHAR_HEIGHT + 3, 128, DOG_CHAR_HEIGHT);
@@ -438,14 +438,14 @@ static void _drawmenu_setting_edit_generic(uint8_t row, const char* pstr, char p
 void lcd_implementation_drawedit(const char* pstr, char* value)
 {
 		u8g.setPrintPos(0 * DOG_CHAR_WIDTH_LARGE, (u8g.getHeight() - 1 - DOG_CHAR_HEIGHT_LARGE) - (1 * DOG_CHAR_HEIGHT_LARGE) - START_ROW );
-  #if LANGUAGE_CHOICE == 99 
+  #if LANGUAGE_CHOICE == cn 
     u8g.setFont(chinese);
   #else
     u8g.setFont(u8g_font_9x18);
   #endif
 		lcd_printPGM(pstr);
 		u8g.print(':');
-  #if LANGUAGE_CHOICE == 99 
+  #if LANGUAGE_CHOICE == cn 
 		u8g.setPrintPos((12 - strlen(value)) * DOG_CHAR_WIDTH_LARGE, (u8g.getHeight() - 1 - DOG_CHAR_HEIGHT_LARGE) - (1 * DOG_CHAR_HEIGHT_LARGE) - START_ROW );
   #else
 		u8g.setPrintPos((14 - strlen(value)) * DOG_CHAR_WIDTH_LARGE, (u8g.getHeight() - 1 - DOG_CHAR_HEIGHT_LARGE) - (1 * DOG_CHAR_HEIGHT_LARGE) - START_ROW );

@@ -349,7 +349,7 @@ const u8g_fntpgm_uint8_t u8g_font_6x10_marlin[2617] U8G_SECTION(".progmem.u8g_fo
   Added By MakerLab.me for Chinese Support.
 */
 
-#if LANGUAGE_CHOICE == 99
+#if LANGUAGE_CHOICE == cn
 
 #include "utility/u8g.h"
 
@@ -595,5 +595,5 @@ const u8g_fntpgm_uint8_t chinese[3819] U8G_SECTION(".progmem.chinese") = {
   0,0,204,68,68,68,76,52,255,255,255
 };
 
-#endif //LANGUAGE_CHOICE == 99
+#endif //LANGUAGE_CHOICE == cn
 
