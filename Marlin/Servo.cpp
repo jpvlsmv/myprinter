@@ -45,7 +45,6 @@
 
 #ifdef NUM_SERVOS
 #include <avr/interrupt.h>
-#include <Arduino.h>
 
 #include "Servo.h"
 

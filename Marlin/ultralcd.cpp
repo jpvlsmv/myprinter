@@ -57,7 +57,9 @@ static void lcd_control_temperature_preheat_pla_settings_menu();
 static void lcd_control_temperature_preheat_abs_settings_menu();
 static void lcd_control_motion_menu();
 #ifdef DOGLCD
+#if !defined(MINIPANEL)
 static void lcd_set_contrast();
+#endif
 #endif
 static void lcd_control_retract_menu();
 static void lcd_sdcard_menu();
@@ -265,6 +267,7 @@ static void lcd_main_menu()
         MENU_ITEM(submenu, MSG_TUNE, lcd_tune_menu);
     }else{
         MENU_ITEM(submenu, MSG_PREPARE, lcd_prepare_menu);
+       // u8g.setFont(u8g_font_6x10_marlin);
     }
     MENU_ITEM(submenu, MSG_CONTROL, lcd_control_menu);
 #ifdef SDSUPPORT
@@ -616,9 +619,11 @@ static void lcd_control_menu()
     MENU_ITEM(back, MSG_MAIN, lcd_main_menu);
     MENU_ITEM(submenu, MSG_TEMPERATURE, lcd_control_temperature_menu);
     MENU_ITEM(submenu, MSG_MOTION, lcd_control_motion_menu);
-#ifdef DOGLCD
+#ifdef DOGLCD && !defined(MINIPANEL)
+#if !defined(MINIPANEL)
 //    MENU_ITEM_EDIT(int3, MSG_CONTRAST, &lcd_contrast, 0, 63);
     MENU_ITEM(submenu, MSG_CONTRAST, lcd_set_contrast);
+#endif
 #endif
 #ifdef FWRETRACT
     MENU_ITEM(submenu, MSG_RETRACT, lcd_control_retract_menu);
@@ -733,6 +738,7 @@ static void lcd_control_motion_menu()
 }
 
 #ifdef DOGLCD
+#if !defined(MINIPANEL)
 static void lcd_set_contrast()
 {
     if (encoderPosition != 0)
@@ -755,6 +761,7 @@ static void lcd_set_contrast()
         encoderPosition = 0;
     }
 }
+#endif
 #endif
 
 #ifdef FWRETRACT
@@ -1107,7 +1114,11 @@ void lcd_update()
         u8g.firstPage();
         do
         {
+#if LANGUAGE_CHOICE == 10
+            u8g.setFont(chinese);
+#else
             u8g.setFont(u8g_font_6x10_marlin);
+#endif
             u8g.setPrintPos(125,0);
             if (blink % 2) u8g.setColorIndex(1); else u8g.setColorIndex(0); // Set color for the alive dot
             u8g.drawPixel(127,63); // draw alive dot
@@ -1166,11 +1177,13 @@ void lcd_reset_alert_level()
 }
 
 #ifdef DOGLCD
+#if !defined(MINIPANEL)
 void lcd_setcontrast(uint8_t value)
 {
     lcd_contrast = value & 63;
     u8g.setContrast(lcd_contrast);
 }
+#endif
 #endif
 
 #ifdef ULTIPANEL
