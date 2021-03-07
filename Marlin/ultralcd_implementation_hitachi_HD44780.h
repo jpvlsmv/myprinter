@@ -467,7 +467,7 @@ static void lcd_implementation_status_screen()
 # endif//LCD_WIDTH > 19
     lcd.setCursor(LCD_WIDTH - 8, 1);
     lcd.print('Z');
-    lcd.print(ftostr32(current_position[Z_AXIS]));
+    lcd.print(ftostr32(current_position[Z_AXIS] + 0.00001));
 #endif//LCD_HEIGHT > 2
 
 #if LCD_HEIGHT > 3
@@ -499,9 +499,23 @@ static void lcd_implementation_status_screen()
     }
 #endif
 
-    //Status message line on the last line
+    //Display both Status message line and Filament display on the last line
+    #ifdef FILAMENT_LCD_DISPLAY
+      if(message_millis+5000>millis()){  //display any status for the first 5 sec after screen is initiated
+         	 lcd.setCursor(0, LCD_HEIGHT - 1);
+        	 lcd.print(lcd_status_message);
+        } else {
+		     lcd.setCursor(0,LCD_HEIGHT - 1);
+		     lcd_printPGM(PSTR("Dia "));
+		     lcd.print(ftostr12ns(filament_width_meas));
+		     lcd_printPGM(PSTR(" V"));
+		     lcd.print(itostr3(100.0*volumetric_multiplier[FILAMENT_SENSOR_EXTRUDER_NUM]));
+    		 lcd.print('%');
+        }
+    #else
     lcd.setCursor(0, LCD_HEIGHT - 1);
     lcd.print(lcd_status_message);
+    #endif
 }
 static void lcd_implementation_drawmenu_generic(uint8_t row, const char* pstr, char pre_char, char post_char)
 {

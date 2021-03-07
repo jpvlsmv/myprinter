@@ -270,9 +270,6 @@ static void lcd_implementation_status_screen()
 		 u8g.drawBox(38,17,2,2);
 		 u8g.setColorIndex(1);	// black on white
 		}
- #else
- u8g.setPrintPos(31,27);
- u8g.print("---");
  #endif
  
  // Extruder 3
@@ -291,9 +288,6 @@ static void lcd_implementation_status_screen()
 		 u8g.drawBox(62,17,2,2);
 		 u8g.setColorIndex(1);	// black on white
 		}
- #else
- u8g.setPrintPos(55,27);
- u8g.print("---");
  #endif
  
  // Heatbed
@@ -363,8 +357,21 @@ static void lcd_implementation_status_screen()
 #else
  u8g.setFont(FONT_STATUSMENU);
  u8g.setPrintPos(0,61);
-#endif
- u8g.print(lcd_status_message);
+ #ifndef FILAMENT_LCD_DISPLAY
+ 	u8g.print(lcd_status_message);
+ #else
+	if(message_millis+5000>millis()){  //Display both Status message line and Filament display on the last line
+	 u8g.print(lcd_status_message);
+ 	}
+ 	else
+	{
+	 lcd_printPGM(PSTR("dia:"));
+	 u8g.print(ftostr12ns(filament_width_meas));
+	 lcd_printPGM(PSTR(" factor:"));
+	 u8g.print(itostr3(extrudemultiply));
+	 u8g.print('%');
+	}
+ #endif 	
 
 }
 

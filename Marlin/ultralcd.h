@@ -44,9 +44,15 @@
   extern int absPreheatFanSpeed;
   
   extern bool cancel_heatup;
+  
+  #ifdef FILAMENT_LCD_DISPLAY
+        extern unsigned long message_millis;
+  #endif
     
   void lcd_buzz(long duration,uint16_t freq);
   bool lcd_clicked();
+
+  void lcd_ignore_click(bool b=true);
 
   #ifdef NEWPANEL
     #define EN_C (1<<BLEN_C)
@@ -109,6 +115,7 @@ char *ftostr3(const float &x);
 char *ftostr31ns(const float &x); // float to string without sign character
 char *ftostr31(const float &x);
 char *ftostr32(const float &x);
+char *ftostr12ns(const float &x); 
 char *ftostr5(const float &x);
 char *ftostr51(const float &x);
 char *ftostr52(const float &x);
