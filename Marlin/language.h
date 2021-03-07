@@ -40,6 +40,9 @@
 #elif MOTHERBOARD == 310
 	#define MACHINE_NAME "MeBot"
 	#define FIRMWARE_URL "http://makerlab.me/"
+#elif MOTHERBOARD == 88
+	#define MACHINE_NAME "Makibox"
+	#define FIRMWARE_URL "https://github.com/ErikZalm/Marlin/"
 #else
 	#ifdef CUSTOM_MENDEL_NAME
 		#define MACHINE_NAME CUSTOM_MENDEL_NAME

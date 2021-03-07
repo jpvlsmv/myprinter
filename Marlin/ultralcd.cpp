@@ -196,6 +196,7 @@ static void lcd_status_screen()
         currentMenu = lcd_main_menu;
         encoderPosition = 0;
         lcd_quick_feedback();
+        lcd_implementation_init(); // to maybe revive the LCD if static electricity killed it.
     }
 
 #ifdef ULTIPANEL_FEEDMULTIPLY
