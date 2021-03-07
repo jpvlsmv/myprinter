@@ -157,6 +157,10 @@
 // M400 - Finish all moves
 // M401 - Lower z-probe if present
 // M402 - Raise z-probe if present
+// M404 - N<dia in mm> Enter the nominal filament width (3mm, 1.75mm ) or will display nominal filament width without parameters
+// M405 - Turn on Filament Sensor extrusion control.  Optional D<delay in cm> to set delay in centimeters between sensor and extruder 
+// M406 - Turn off Filament Sensor extrusion control 
+// M407 - Displays measured filament diameter 
 // M500 - stores parameters in EEPROM
 // M501 - reads parameters from EEPROM (if you need reset them after you changed them temporarily).
 // M502 - reverts to the default "factory settings".  You still need to store them in EEPROM afterwards if you want to.
@@ -243,11 +247,29 @@ int EtoPPressure=0;
 
 #ifdef FWRETRACT
   bool autoretract_enabled=false;
-  bool retracted=false;
+  bool retracted[EXTRUDERS]={false
+    #if EXTRUDERS > 1
+    , false
+     #if EXTRUDERS > 2
+      , false
+     #endif
+  #endif
+  };
+  bool retracted_swap[EXTRUDERS]={false
+    #if EXTRUDERS > 1
+    , false
+     #if EXTRUDERS > 2
+      , false
+     #endif
+  #endif
+  };
+
   float retract_length = RETRACT_LENGTH;
+  float retract_length_swap = RETRACT_LENGTH_SWAP;
   float retract_feedrate = RETRACT_FEEDRATE;
   float retract_zlift = RETRACT_ZLIFT;
   float retract_recover_length = RETRACT_RECOVER_LENGTH;
+  float retract_recover_length_swap = RETRACT_RECOVER_LENGTH_SWAP;
   float retract_recover_feedrate = RETRACT_RECOVER_FEEDRATE;
 #endif
 
@@ -277,6 +299,18 @@ int EtoPPressure=0;
 #endif					
 
 bool cancel_heatup = false ;
+
+#ifdef FILAMENT_SENSOR
+  //Variables for Filament Sensor input 
+  float filament_width_nominal=DEFAULT_NOMINAL_FILAMENT_DIA;  //Set nominal filament width, can be changed with M404 
+  bool filament_sensor=false;  //M405 turns on filament_sensor control, M406 turns it off 
+  float filament_width_meas=DEFAULT_MEASURED_FILAMENT_DIA; //Stores the measured filament diameter 
+  signed char measurement_delay[MAX_MEASUREMENT_DELAY+1];  //ring buffer to delay measurement  store extruder factor after subtracting 100 
+  int delay_index1=0;  //index into ring buffer
+  int delay_index2=-1;  //index into ring buffer - set to -1 on startup to indicate ring buffer needs to be initialized
+  float delay_dist=0; //delay distance counter  
+  int meas_delay_cm = MEASUREMENT_DELAY_CM;  //distance delay setting
+#endif
 
 //===========================================================================
 //=============================Private Variables=============================
@@ -470,6 +504,7 @@ void servo_init()
   #endif
 }
 
+
 void setup()
 {
   setup_killpin();
@@ -519,6 +554,7 @@ void setup()
   st_init();    // Initialize stepper, this enables interrupts!
   setup_photpin();
   servo_init();
+  
 
   lcd_init();
   _delay_ms(1000);	// wait 1sec to display the splash screen
@@ -1119,23 +1155,27 @@ void refresh_cmd_timeout(void)
 }
 
 #ifdef FWRETRACT
-  void retract(bool retracting) {
-    if(retracting && !retracted) {
+  void retract(bool retracting, bool swapretract = false) {
+    if(retracting && !retracted[active_extruder]) {
       destination[X_AXIS]=current_position[X_AXIS];
       destination[Y_AXIS]=current_position[Y_AXIS];
       destination[Z_AXIS]=current_position[Z_AXIS];
       destination[E_AXIS]=current_position[E_AXIS];
-      current_position[E_AXIS]+=retract_length/volumetric_multiplier[active_extruder];
+      if (swapretract) {
+        current_position[E_AXIS]+=retract_length_swap/volumetric_multiplier[active_extruder];
+      } else {
+        current_position[E_AXIS]+=retract_length/volumetric_multiplier[active_extruder];
+      }
       plan_set_e_position(current_position[E_AXIS]);
       float oldFeedrate = feedrate;
       feedrate=retract_feedrate*60;
-      retracted=true;
+      retracted[active_extruder]=true;
       prepare_move();
       current_position[Z_AXIS]-=retract_zlift;
       plan_set_position(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[E_AXIS]);
       prepare_move();
       feedrate = oldFeedrate;
-    } else if(!retracting && retracted) {
+    } else if(!retracting && retracted[active_extruder]) {
       destination[X_AXIS]=current_position[X_AXIS];
       destination[Y_AXIS]=current_position[Y_AXIS];
       destination[Z_AXIS]=current_position[Z_AXIS];
@@ -1143,11 +1183,15 @@ void refresh_cmd_timeout(void)
       current_position[Z_AXIS]+=retract_zlift;
       plan_set_position(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[E_AXIS]);
       //prepare_move();
-      current_position[E_AXIS]-=(retract_length+retract_recover_length)/volumetric_multiplier[active_extruder]; 
+      if (swapretract) {
+        current_position[E_AXIS]-=(retract_length_swap+retract_recover_length_swap)/volumetric_multiplier[active_extruder]; 
+      } else {
+        current_position[E_AXIS]-=(retract_length+retract_recover_length)/volumetric_multiplier[active_extruder]; 
+      }
       plan_set_e_position(current_position[E_AXIS]);
       float oldFeedrate = feedrate;
       feedrate=retract_recover_feedrate*60;
-      retracted=false;
+      retracted[active_extruder]=false;
       prepare_move();
       feedrate = oldFeedrate;
     }
@@ -1217,10 +1261,19 @@ void process_commands()
       break;
       #ifdef FWRETRACT
       case 10: // G10 retract
+       #if EXTRUDERS > 1
+        retracted_swap[active_extruder]=(code_seen('S') && code_value_long() == 1); // checks for swap retract argument
+        retract(true,retracted_swap[active_extruder]);
+       #else
         retract(true);
+       #endif
       break;
       case 11: // G11 retract_recover
+       #if EXTRUDERS > 1
+        retract(false,retracted_swap[active_extruder]);
+       #else
         retract(false);
+       #endif 
       break;
       #endif //FWRETRACT
     case 28: //G28 Home all Axis one at a time
@@ -1695,7 +1748,7 @@ void process_commands()
     case 23: //M23 - Select file
       starpos = (strchr(strchr_pointer + 4,'*'));
       if(starpos!=NULL)
-        *(starpos-1)='\0';
+        *(starpos)='\0';
       card.openFile(strchr_pointer + 4,true);
       break;
     case 24: //M24 - Start SD print
@@ -1718,7 +1771,7 @@ void process_commands()
       if(starpos != NULL){
         char* npos = strchr(cmdbuffer[bufindr], 'N');
         strchr_pointer = strchr(npos,' ') + 1;
-        *(starpos-1) = '\0';
+        *(starpos) = '\0';
       }
       card.openFile(strchr_pointer+4,false);
       break;
@@ -1733,7 +1786,7 @@ void process_commands()
         if(starpos != NULL){
           char* npos = strchr(cmdbuffer[bufindr], 'N');
           strchr_pointer = strchr(npos,' ') + 1;
-          *(starpos-1) = '\0';
+          *(starpos) = '\0';
         }
         card.removeFile(strchr_pointer + 4);
       }
@@ -1755,7 +1808,7 @@ void process_commands()
         namestartpos++; //to skip the '!'
 
       if(starpos!=NULL)
-        *(starpos-1)='\0';
+        *(starpos)='\0';
 
       bool call_procedure=(code_seen('P'));
 
@@ -1778,7 +1831,7 @@ void process_commands()
       if(starpos != NULL){
         char* npos = strchr(cmdbuffer[bufindr], 'N');
         strchr_pointer = strchr(npos,' ') + 1;
-        *(starpos-1) = '\0';
+        *(starpos) = '\0';
       }
       card.openLogFile(strchr_pointer+5);
       break;
@@ -2198,7 +2251,7 @@ void process_commands()
     case 117: // M117 display message
       starpos = (strchr(strchr_pointer + 5,'*'));
       if(starpos!=NULL)
-        *(starpos-1)='\0';
+        *(starpos)='\0';
       lcd_setstatus(strchr_pointer + 5);
       break;
     case 114: // M114
@@ -2283,6 +2336,8 @@ void process_commands()
         } else {
           //reserved for setting filament diameter via UFID or filament measuring device
           break;
+        
+          
         }
         tmp_extruder = active_extruder;
         if(code_seen('T')) {
@@ -2396,8 +2451,28 @@ void process_commands()
         int t= code_value() ;
         switch(t)
         {
-          case 0: autoretract_enabled=false;retracted=false;break;
-          case 1: autoretract_enabled=true;retracted=false;break;
+          case 0: 
+          {
+            autoretract_enabled=false;
+            retracted[0]=false;
+            #if EXTRUDERS > 1
+              retracted[1]=false;
+            #endif
+            #if EXTRUDERS > 2
+              retracted[2]=false;
+            #endif
+          }break;
+          case 1: 
+          {
+            autoretract_enabled=true;
+            retracted[0]=false;
+            #if EXTRUDERS > 1
+              retracted[1]=false;
+            #endif
+            #if EXTRUDERS > 2
+              retracted[2]=false;
+            #endif
+          }break;
           default:
             SERIAL_ECHO_START;
             SERIAL_ECHOPGM(MSG_UNKNOWN_COMMAND);
@@ -2718,6 +2793,70 @@ void process_commands()
     }
     break;
 #endif
+
+#ifdef FILAMENT_SENSOR
+case 404:  //M404 Enter the nominal filament width (3mm, 1.75mm ) N<3.0> or display nominal filament width 
+    {
+    #if (FILWIDTH_PIN > -1) 
+    if(code_seen('N')) filament_width_nominal=code_value();
+    else{
+    SERIAL_PROTOCOLPGM("Filament dia (nominal mm):"); 
+    SERIAL_PROTOCOLLN(filament_width_nominal); 
+    }
+    #endif
+    }
+    break; 
+    
+    case 405:  //M405 Turn on filament sensor for control 
+    {
+    
+    
+    if(code_seen('D')) meas_delay_cm=code_value();
+       
+       if(meas_delay_cm> MAX_MEASUREMENT_DELAY)
+       	meas_delay_cm = MAX_MEASUREMENT_DELAY;
+    
+       if(delay_index2 == -1)  //initialize the ring buffer if it has not been done since startup
+    	   {
+    	   int temp_ratio = widthFil_to_size_ratio(); 
+       	    
+       	    for (delay_index1=0; delay_index1<(MAX_MEASUREMENT_DELAY+1); ++delay_index1 ){
+       	              measurement_delay[delay_index1]=temp_ratio-100;  //subtract 100 to scale within a signed byte
+       	        }
+       	    delay_index1=0;
+       	    delay_index2=0;	
+    	   }
+    
+    filament_sensor = true ; 
+    
+    //SERIAL_PROTOCOLPGM("Filament dia (measured mm):"); 
+    //SERIAL_PROTOCOL(filament_width_meas); 
+    //SERIAL_PROTOCOLPGM("Extrusion ratio(%):"); 
+    //SERIAL_PROTOCOL(extrudemultiply); 
+    } 
+    break; 
+    
+    case 406:  //M406 Turn off filament sensor for control 
+    {      
+    filament_sensor = false ; 
+    } 
+    break; 
+  
+    case 407:   //M407 Display measured filament diameter 
+    { 
+     
+    
+    
+    SERIAL_PROTOCOLPGM("Filament dia (measured mm):"); 
+    SERIAL_PROTOCOLLN(filament_width_meas);   
+    } 
+    break; 
+    #endif
+    
+
+
+
+
     case 500: // M500 Store settings in EEPROM
     {
         Config_StoreSettings();
