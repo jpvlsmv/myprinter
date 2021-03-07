@@ -502,7 +502,7 @@
   #endif
 
   #if MOTHERBOARD == 35
-    #define CONTROLLERFAN_PIN  10 //Pin used for the fan to cool controller
+    #define CONTROLLERFAN_PIN  -1 //Pin used for the fan to cool controller
   #endif
 
   #define PS_ON_PIN          12
@@ -1096,6 +1096,22 @@
 
 #ifdef AZTEEG_X1
  #define FAN_PIN            4
+#endif
+
+#ifdef NUM_SERVOS
+  #define SERVO0_PIN          -1
+
+  #if NUM_SERVOS > 1
+    #define SERVO1_PIN        -1
+  #endif
+
+  #if NUM_SERVOS > 2
+    #define SERVO2_PIN        -1
+  #endif
+
+  #if NUM_SERVOS > 3
+    #define SERVO3_PIN        -1
+  #endif
 #endif
 
 #define PS_ON_PIN          -1
