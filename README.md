@@ -22,12 +22,12 @@ Developer Notes
 Marlin 3D Printer Firmware
 ==========================
 [![Coverity Scan Build Status](https://scan.coverity.com/projects/2224/badge.svg)](https://scan.coverity.com/projects/2224)
-[![Travis Build Status](https://travis-ci.org/ErikZalm/Marlin.svg)](https://travis-ci.org/ErikZalm/Marlin)
+[![Travis Build Status](https://travis-ci.org/MarlinFirmware/Marlin.svg)](https://travis-ci.org/MarlinFirmware/Marlin)
 
 Marlin has a GPL license because I believe in open development.
 Please do not use this code in products (3D printers, CNC etc) that are closed source or are crippled by a patent.
 
-[![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=ErikZalm&url=https://github.com/ErikZalm/Marlin&title=Marlin&language=&tags=github&category=software)
+[![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=ErikZalm&url=https://github.com/MarlinFirmware/Marlin&title=Marlin&language=&tags=github&category=software)
 
 Quick Information
 ===================
@@ -276,20 +276,26 @@ M Codes
 Configuring and compilation:
 ============================
 
-Install the arduino software IDE/toolset v23 (Some configurations also work with 1.x.x)
+Install the latest non-beta arduino software IDE/toolset
    http://www.arduino.cc/en/Main/Software
 
 Download the Marlin firmware
-   https://github.com/ErikZalm/Marlin/tree/Marlin_v1
-   Use the "Download Zip" button on the right.
+   https://github.com/MarlinFirmware/Marlin/tree/development
+   
+   For the latest development, or 
+   
+   
+   
+   For the latest stable release
+   
+   In both cases use the "Download Zip" button on the right.
 
-For gen6/gen7 and sanguinololu the Sanguino directory in the Marlin dir needs to be copied to the arduino environment.
-  copy ArduinoAddons\Arduino_x.x.x\sanguino <arduino home>\hardware\Sanguino
+For some spec. boards a spec. dir in the ArduinoAddons directory in the Marlin dir needs to be copied to the arduino environment. <arduino home>\hardware\
 
 Start the arduino IDE.
 Select Tools -> Board -> Arduino Mega 2560    or your microcontroller
 Select the correct serial port in Tools ->Serial Port
-Open Marlin.pde
+Open Marlin.pde or .ino
 
 Click the Verify/Compile button
 
@@ -303,14 +309,6 @@ Instructions for configuring Bed Auto Leveling
 ===============================================
 There are two options for this feature. You may choose to use a servo mounted on the X carriage or you may use a sled that mounts on the X axis and can be docked when not in use.
 See the section for each option below for specifics about installation and configuration. Also included are instructions that apply to both options.
-
-Note for RAMPS users:
----------------------
-
-By default, RAMPS have no power on servo bus (if you happen to have a multimeter, check the voltage on servo power pins).
-In order to get the servo working, you need to supply 5V to 5V pin.. You can do it using your power supply (if it has a 5V output) or jumping the "Vcc" from Arduino to the 5V RAMPS rail.
-These 2 pins are located just between the Reset Button and the yellow fuses... There are marks in the board showing 5V and VCC.. just connect them..
-If jumping the arduino Vcc do RAMPS 5V rail, take care to not use a power hungry servo, otherwise you will cause a blackout in the arduino board ;-)
 
 Instructions for Both Options
 -----------------------------
