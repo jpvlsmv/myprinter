@@ -1,0 +1,654 @@
+7ced55b97c !!! - Created by git log last-ancestor..1.0.x --oneline | tac > commits_to_apply.txt
+7ced55b97c !!! - Checked using $ while read id rest ; do grep -q $id commits_to_apply.txt 
+7ced55b97c !!! -     || echo $id NOT IN APPLY LIST; git merge $id; done < commits_applied.txt 
+7ced55b97c !!! -     | grep -v "Already up to date."
+7ced55b97c Merge pull request #1 from ErikZalm/Marlin_v1
+17d6d965dc Use C++ initialization list
+1781031f2d Update LCD Menu Tree with current options, based on ultralcd.cpp and language.h.
+36086d3ca4 Update language.h
+8b67f6f3e8 Add Aragonese translation
+6f76066ab3 Merge pull request #756 from danielmartinez/aragones
+19530c9945 Revert "Merge pull request #756 from danielmartinez/aragones"
+8ebcc9dc3a Merge pull request #748 from wolfmanjm/add/azteegx3pro
+ac74f45dc0 Merge pull request #752 from MatixYo/patch-3
+f64592e362 Add Aragonese translation
+c8e5a82d49 keep English as default lang.
+bdd0211aeb Move strings in ultralcd.cpp into language.h.
+b18b40feff Merge pull request #760 from danielmartinez/aragonese_trans
+54bab3e0d0 Merge branch 'Marlin_v1' into localisation
+0778f5f028 Add missing entries to the new Aragonian language.
+1a6d21bb60 Merge pull request #761 from Cylindric3D/localisation
+5f797ca29f Updated Polish, changed default firmware URL to Marlin.
+363dc2f0e8 Merge branch 'Marlin_v1' into update_menu_plan
+3f6d44d40b Keep FWRETRACT values in terms of millimeters when using M200 for volumetric E units
+78e7654601 Keep FWRETRACT values in terms of millimeters when using M200
+b5ba5c1465 Merge branch 'Marlin_v1' of https://github.com/whosawhatsis/Marlin into Marlin_v1
+0b9ecf3824 Language cleanup, part 1.
+15d6116188 Merge pull request #689 from cajun-rat/tidy
+d6c5c503d4 correct feedrate units in comments for M207/M208
+6e43398509 G10/G11 bugfixes
+816f0a678a Merge pull request #768 from whosawhatsis/Marlin_v1
+9b7d87e885 Remove duplicate contrast define.
+71bb3a8133 Add comments for Ultimainboard 2.0 configuration.
+d16a770855 Ultimainboard 2.x does not has a PS_ON pin.
+46f5bea19f Add configurable beep for UltiPanel.
+c31bb2b7ad Only show the ZProbe offset when auto-bed-leveling is enabled.
+7dcd350941 A few changes to Russian, changed LCD strings to be <=17 characters.
+831fc2a952 Pt100 and Pt1000 temperature sensors handling
+477b6fa1df move engaged from lcd console refreshes power off timeout
+ab0d3c4fb3 Various typo fixes - only in comments, no code changes.
+c9c83a4560 Updated gen3+ board pins names to current convention
+ad2c6488c7 Add probe_pt(), useful for auto bed leveling
+c4fbb44d6d Refactor 3-point auto bed leveling to use probe_pt()
+0f7393a13e Refactor 'accurate' auto bed leveling to use probe_pt()
+a466c8ef68 Merge pull request #774 from MissionSt/cleanup/probe_pt
+8c5675c290 Use language.h instead of English literals for "bed"
+2f2459c0db Fix G10/G11 Z-lift
+66e3869138 Fix autoretract
+99f0e44864 Move FWRETRACT defaults to configuration_adv.h
+c43838bb1e disable auto retract by default
+306588925d Add whitespace to M114 output
+b45beeffd6 typo fix in Makefile
+5bd09d26e2 Makefile works with auto bed leveling
+3b193d1b5f Merge pull request #775 from MissionSt/lang-fix/bed
+08263ae66e Merge branch 'Marlin_v1' into typofixes_1
+8f0cee2a14 Various typo fixes - only in comments, no code changes.
+bbb424bd2f Merge pull request #779 from MissionSt/makefile-fix-abl
+d4ba23bc28 Merge pull request #770 from josefpavlik/Marlin_v1
+4ddedb3b27 Merge pull request #780 from Cylindric3D/typofixes_2
+3f455889d0 Merge pull request #769 from Cylindric3D/typofixes_1
+5d50819791 Various typo fixes - only in comments, no code changes.
+d1c64b9dc4 Fix syntax error introduced in 477b6fa1d
+cf5c3b6610 Added dutch to language.h
+96217bf36a Merge pull request #777 from PxT/M114
+fd42f0d226 Merge pull request #783 from MissionSt/fix/syntax-error
+af9395ac2e Add M605 to dynamically set delta configuration Save above configs in eeprom fix docs in createTemperatureLookupMarlin.py add missing azteegX3pro digipot settings in delta example config
+498d76fd79 Fixed some messages where the text shown on the screen was more than 17 characters
+51ae4881ab Fixed small typo that would prevent compiling
+46bae30573 Merge pull request #776 from whosawhatsis/fwretract
+8212d8d543 Revert "Fixed small typo that would prevent compiling"
+b868d668fa Merge branch 'Marlin_v1' of https://github.com/ErikZalm/Marlin into typofixes_upstream
+abba7a0003 Merge pull request #782 from marcovannoord/Marlin_v1
+60f72a78a9 Merge branch 'Marlin_v1' of https://github.com/ErikZalm/Marlin into typofixes_upstream
+c00383f286 Fixed typo.
+2ccdf4f36d Use descriptive constants instead of numeric literals
+d2d7d186b5 Use descriptive constants, more
+357e31270a Prevent G29 without first homing in X and Y
+f308a8af91 update comment
+73f0ee9345 Merge pull request #794 from MissionSt/g29_requires_home
+9fa328e5c8 Merge pull request #793 from MissionSt/use_axis_enums
+541155ea87 Merge branch 'Marlin_v1' of https://github.com/ErikZalm/Marlin into typofixes_upstream
+34fd59c370 ABL at any points
+3b718b816c better documentation
+174b8d99d5 Simplify 3-point probing using new code only
+3cc7626d1f Merge branch 'Marlin_v1' of https://github.com/ErikZalm/Marlin into update_menu_plan
+b46a1b6360 Update the menu plan document with the current menu as per ultralcd.cpp.
+ea669cb504 Fix some extra and some missing tabs, to make the file consistent.
+99f6326544 Remove unnecessary dependency on time.h from qr_solve.cpp
+d3fcc28e64 Merge pull request #796 from MissionSt/any-pt-abl
+aee63afccd Clarify which PID values to enter
+557217fc05 Merge branch 'Marlin_v1' of https://github.com/ErikZalm/Marlin into update_menu_plan
+91759dede6 Merge branch 'Marlin_v1' of https://github.com/ErikZalm/Marlin into typofixes_upstream
+cc5f1d475c Merge pull request #772 from ellensp/Marlin_v1
+77df0d689a autretract fix
+b514d3c87f Merge pull request #781 from Cylindric3D/typofixes_upstream
+88506a80c3 Merge pull request #789 from smiler/Marlin_v1
+465b654d24 Merge pull request #797 from Cylindric3D/update_menu_plan
+e8291ed728 Merge pull request #802 from Makers-Tool-Works/Marlin_v1
+fd4542f33a Merge pull request #805 from whosawhatsis/M200
+d819c55395 Various typo fixes - only in comments, no code changes.
+fdce91192e Various typo fixes - only in comments, no code changes.
+1aa10a5f18 Merge pull request #806 from Cylindric3D/typofixes_upstream
+fde8c2c310 Merge pull request #807 from Cylindric3D/typofixes_upstream5
+661e378ce9 Update README.md
+8c4377dd63 temperature.cpp: Fix PID_DEBUG compile error.
+8ea5665ee2 Merge remote-tracking branch 'origin/Marlin_v1' into add/M665-set-delta-configuration
+8c98690e1d Merge pull request #786 from wolfmanjm/add/M665-set-delta-configuration
+fcd8524b6e Only increase EEPROM version for DELTA printers.
+4f3eb6bec8 Merge pull request #811 from anfroholic/patch-1
+7f76a0e064 Merge pull request #813 from drf5n/PID_DEBUG
+7325d7102e Activate LiquidTWI2 device detection and space-pad LCD status line.
+15d1b8d719 Fixed finnish translation
+040357fd1b Merge pull request #822 from tommil/Marlin_v1
+5a332df47e Merge https://github.com/ErikZalm/Marlin into Marlin_v1
+881e348eed Update Configuration_adv.h
+765b2da3d4 Added CHDK support
+09af1b90b8 Added CHDK support
+6cd85e6008 Add support for disabling encoder control for feedrate multiplier
+aab61e63c3 FWRETRACT in mm/s
+272072fa20 Added M112
+0ddee3c7db Prevent SD card insertion from causing a hang when using LiquidTWI2 device detection
+af8be9013b Merge branch 'lcd_detected' of https://github.com/whosawhatsis/Marlin into Marlin_v1
+1f895844ac Merge pull request #829 from blddk/Marlin_v1
+a00cec8b71 Merge pull request #833 from mattsch/optional_feedrate_multiplier
+a38c90ee84 Added estop handling
+8613a74443 Merge pull request #1 from ErikZalm/Marlin_v1
+3906f27c46 Individual extruder flow rate
+084134d3c7 Merge pull request #841 from Dim3nsioneer/Marlin_v1
+06709ad60e Added servo pin assignments to Sanguinololu
+944ced87c5 Extended Preheat options
+eecda434fb Sanguinololu servo pins set default disabled
+fad2a60ce6 Corrections for preheat extension in language.h
+7395dafc1e semantic changes in language.h
+c8cdd1fc6f Bugfixes for language option 6 (russian)
+51c6bd6b72 Merge pull request #846 from Dim3nsioneer/Marlin_v1
+bbe8fbe13d Merge branch 'Marlin_v1' of https://github.com/ErikZalm/Marlin into Marlin_v1
+f643f4d674 Test and refactor
+990e770e15 Update language.h
+a3530d1141 Update language.h
+b0093a1513 thermistortables.h: Add comments that table 60 uses beta=3950.
+89f78b0b80 Allow use of either SD Card slot when LCD Panel is configured. Preference is for Controller SD slot before LCD Panel slot when both are occupied.
+aeaf9b9312 fix bug in M200 with multiple extruders
+a65564eef6 fix bug in M200 with multiple extruders
+8759508319 fix bug for dual extruders not working
+303ee67896 Merge pull request #864 from whosawhatsis/M200
+9a5d23d96f Merge pull request #866 from sakunamary/Marlin_v1
+f1501317ca Merge pull request #860 from drf5n/therm3950
+dfb98101e4 Change CONTROLLERFAN_PIN for board 35 to -1, as it would conflict with board's 33 extruder pin, causing burnout (it's the same board, just different number of fans/extruders, therefore should be pin-compatible)
+c23376f2e7 Merge pull request #837 from whosawhatsis/fwretract
+dca9790f42 Update Readme descriptions for M200, M207 and M208
+fe4930212c Merge pull request #871 from whosawhatsis/fwretract
+73b380d8d2 Merge branch 'Marlin_v1' of https://github.com/ErikZalm/Marlin into Marlin_v1
+b0aeac117f Adjustable Z probe offset, via custom M-code
+d3f305332a Allowable range now includes default value
+27a7cf9fcf use existing strings
+2fa51f8920 Merge pull request #804 from MissionSt/adjustable-z-probe-offset
+95ad6ec9a1 Merge branch 'Marlin_v1' of https://github.com/ErikZalm/Marlin into Marlin_v1
+357b87b498 Merge pull request #826 from paciotti/patch-1
+3ffc9651b1 Merge pull request #845 from DerSchultze/Sanguinololu-servo
+086ff1644f Merge pull request #852 from pixatintes/patch-1
+3161740df9 This table is made for thermistor 3950 (can be found on ebay for cheap) it's caracteristics are :
+ed6f4a71c5 fix wrong temptable index
+e5b70237c7 Added new language (Basque-Euskera)
+a23a5395f9 Merge pull request #877 from Nutz95/Marlin_v1
+013793bbe9 Merge pull request #878 from koldoartola/Marlin_v1
+27d544ac25 Speed up QUICK_HOME feedrate for diagonal move
+5107018414 Merge pull request #888 from whosawhatsis/quick_home
+6adbdf42e0 Merge branch 'Marlin_v1' of https://github.com/ErikZalm/Marlin into Marlin_v1
+e4dc80d3d3 Update Configuration_adv.h
+21ec6b88c3 Update Marlin_main.cpp
+a33f099547 Merge pull request #893 from MyMakibox/patch-1
+b9126ab497 Merge pull request #894 from MyMakibox/Marlin_v1
+2fa514e88a Add port for 5DPrint D8 Driver board
+1cbcbb0971 Add makibox machine information
+eea3ba5588 Fix for stepper microstepping
+3a8e36f19e Add Digipot config for 5DPrint D8 Driver Board
+da6b536182 Add 5DPrint D8 Driver Board info and temperature table for Makibox hot bed
+39e9b133f3 Add example configuration for Makibox printer, which uses the 5DPrint D8 Driver Board
+2715f6ddbf Fix for reading microstepping resolution
+e2d703377a Enable EEPROM by default for 5DPrint D8 Controller Board in example configuration
+7c7f2d094e Revert "Fix for reading microstepping resolution"
+d85411f13a Revert "Fix for stepper microstepping"
+97ead2eccb Fix for microstepping pin mapping, not using Teensy pin mapping, but Arduino's default pin mapping so Arduino library can be used
+105bebb466 Fix for pin mapping for SDSS pin and Fan pin, so Arduino library can be used
+6460709d92 Fix bug in PID Autotune report
+ad5c8cbba9 Add safety limit for hot bed power in example configuration
+ce76843dc3 Merge pull request #897 from Makible/5DPrint_D8_Board_Support
+8b4c4aa5c3 Add feature to check&retry CRC read errors on SD.
+2acd3792fc Merge branch 'Marlin_v1' of github.com:ErikZalm/Marlin into Marlin_v1
+1c9a70cee9 Support for Gen3 Monolithic electronics
+e541323741 Merge https://github.com/ErikZalm/Marlin into Marlin_v1
+9db9842aea Fixed error found by the free coverity tool (https://scan.coverity.com/)
+92e14298b0 Fixes typo for lcd backlighting on I2C PCF8575
+88b494678f Merge pull request #919 from zaubara/Marlin_v1
+cfb98ef682 More coverity fixes
+aed5ec008a Merge pull request #851 from DanNixon/estop
+38192cb5f3 Add M112 description to Marlin_main
+efb6d61413 Merge branch 'Marlin_v1' of https://github.com/ErikZalm/Marlin into Marlin_v1
+09b84faa00 Configuration.h, pins.h: Add MOTHERBOARD 84 for Teensy++2.0
+b7aac49995 Merge pull request #941 from drf5n/teensypp2
+07c0eeee99 Fixed a comment in the planner
+5a18324030 Merge pull request #946 from Jnesselr/jnesselr/plannerdoc
+29e7639933 Add switch unused feeder(s) off
+8a32c5395b renaming the disable inactive extruder feature
+c8d0ca9337 Merge pull request #947 from Dim3nsioneer/Marlin_v1
+3c927901a4 Implementation of FW extruder change retract
+0de826160e M30 response is missing linefeed, "ok" therefore not on own line
+ea9bffdc48 Merge pull request #949 from foosel/fix/M30_clearToSend_bug
+9d11b70436 Merge branch 'Marlin_v1' of https://github.com/ErikZalm/Marlin into Marlin_v1
+6e6e4e2143 Added thermistor table for the 500C thermistor shipped with the Pico hot end.
+1875ab3bd7 Merge pull request #955 from gregington/pico-thermistor
+86b4b805d2 Fixed stop print LCD function on M104
+cd3220d055 Inverted state logic for forced_heating_stop variable
+512f2a3136 restore Branch from Backup
+fae7d08698 fixed wrong compiler-option
+269a068032 Fix lcd itostr3() to handle negative numbers
+f0cab611db optimised some math-code
+d86c3cf43c Changed the type of variable to bool, the name to "cancel_heatup", flags implementation and added this fix to M190 gcode too.
+4c823224b0 Merge pull request #965 from bq/forced_heating_stop
+43c298a7a9 Add "Thermal Runaway Protection" feature
+6e3406d228 Merge branch 'Marlin_v1' of https://github.com/ErikZalm/Marlin into Marlin_v1
+2242a84218 Changed the declaration of the variable to Marlin_main.cpp to fix issue on commit #965
+ce517df702 Merge pull request #989 from bq/cancel_heatup
+f244045245 Update pins.h
+b5417be109 Update Configuration.h
+32a6451ad8 Add leapfrog and dual Y/Z
+253cf0f427 Add Arduino additions for Arduino 1.5.x.
+82606354dd Update temperature.cpp
+bcd039aa81 Update pins.h
+3f2c771d90 Merge branch 'Marlin_v1' of https://github.com/ErikZalm/Marlin into Marlin_v1
+1fd9a7d476 Fix for FWRETRACT on DELTA printers.
+c7273d521f Merge pull request #2 from ErikZalm/Marlin_v1
+17aa67e4ea If the option DISABLE_INACTIVE_EXTRUDER ist active the extruder switch to early to inactive because there are some moves in the buffer. So the planner wait 32 moves to disable the unused extruder.
+89abf07faa Added gen7-dist - marlin now compiles for gen7
+c51a6f94e0 Fixed stop print LCD function on M104
+f9f54019ab Inverted state logic for forced_heating_stop variable
+2096188ac3 Changed the type of variable to bool, the name to "cancel_heatup", flags implementation and added this fix to M190 gcode too.
+50b4e86f75 Add "Thermal Runaway Protection" feature
+8bf3139bc8 Changed the declaration of the variable to Marlin_main.cpp to fix issue on commit #965
+aacff0d361 Merge pull request #948 from Dim3nsioneer/Marlin_v1
+1bd0dd04e3 Merge remote-tracking branch 'upstream/Marlin_v1' into Marlin_v1
+2f4a20257c imported last Marlin changes
+ad3b770c1a updated examples
+2d22902d08 Fix for a wrong checksum truncation for certain commands
+c13a831ea1 Merge pull request #1017 from foosel/fix/checksum_truncation_bug
+3cd7dbcc45 Merge branch 'Marlin_v1' of https://github.com/ErikZalm/Marlin into Marlin_v1
+d2fcb3ee56 CAB: Added code for Z-probe with Z endstop mounted on a sled.
+0a8dc0e96b Added documentation to the README.md for the sled Z probe option. CAB
+e7707aedbc Commented out new #defines in Configuration.h.
+1d0fe035f3 Change pinMode to SET_INPUT or SET_OUTPUT
+85649a4549 Real-time filament diameter measurement and control
+0091865583 Z_PROBE_REPEATABILITY test
+0adbc79571 Fix Default Configuration so Auto Bed Leveling is off
+5908fd5cec Fix reseting CHDK pin to LOW
+62db9848d3 Improvements and bug fixes in sensor delay buffer for filament sensor code
+e3c88a5120 Filament sensor changes to config file
+75b3a68b65 Revert "Change pinMode to SET_INPUT or SET_OUTPUT"
+8b52eff2c1 Merge pull request #1034 from DerFlob/Marlin_v1
+25069ed4e9 Merge pull request #1031 from Roxy-3DPrintBoard/Z_PROBE_REPEATABILITY-with-correct-Defaults
+68dd5e635e Merge pull request #1024 from oliasmage/Marlin_v1
+105571ec68 Merge pull request #1005 from midopple/Marlin_v1
+9887555192 Merge pull request #998 from darconeous/pull-requests/fwretract
+8340ca6e05 Merge pull request #992 from Grogyan/patch-1
+0fbfb1bf82 Merge pull request #991 from bonm014/patch-1
+dde61d8886 Merge pull request #977 from OskarLinde/Marlin_v1
+018b68a5c4 Merge pull request #976 from cocktailyogi/SCARA_by_Yogi
+cf325ba240 Fix issue 935: error in matrix calculation
+1e9dc85148 Do not use translations for the serial console messages
+1d62309d2a Merge pull request #1053 from foosel/fix/translated_serial_protocol
+fe3a09bbcf Correct analog sampling time for additional A to D sample
+1632e5e38a Merge branch 'Marlin_v1' of https://github.com/ErikZalm/Marlin into Marlin_v1
+37799f70ba Corrected retract() call for use of auto probe without sled enabled.
+3b8216bdd1 Corrected #endif and ifdef for Z_PROBE_SLED code.
+40ba644bb4 Added profile for RAMPS with 2 extruders and 1 fan. 	modified:   Marlin/Configuration.h 	modified:   Marlin/pins.h
+9bc7aec349 Update README.md
+bf0ecedf60 Merge pull request #1051 from fsantini/EZ_fix935
+88d12a762a Added #ifndef DELTA wrapper to float delta
+58eabd21fb Added ifndef
+01e9b536cb Fix build for non-sled bed auto levelling
+5b66810580 Merge pull request #1078 from brackendawson/Marlin_v1
+cb4a6dd2dc Merge pull request #1065 from oliasmage/Marlin_v1
+c35736a140 Update thermistortables.h
+3cbb2f56c6 Update configuration.h
+b5dc228a7a Update configuration.h
+a664763e6f Update thermistortables.h
+d1e4237e1d Update motion_control.cpp
+6c5a460e65 Merge branch 'Marlin_v1' of https://github.com/ErikZalm/Marlin into Marlin_v1
+f989bd5435 Simple code cleanup. Rename "homeing" to homing.
+2f6c57eadc Proposed feature: Set Home Offsets
+6e343ef2f0 Adjust the Z display to hide float rounding errors
+fb34265d75 Make hotend optional when compiling with lcd support
+83037542aa Merge pull request #1098 from mattsch/optional_hotend_lcd
+5ae02a361b Merge pull request #1097 from thinkyhead/round-up-xyz
+0f2e0525df Merge pull request #1096 from thinkyhead/set-home
+c40c7b589b Merge pull request #1095 from thinkyhead/codeclean
+764921bdbf Merge pull request #1091 from Aldert/patch-1
+ce85515428 Merge pull request #1082 from Fourmi/Marlin_v1
+b360306881 Merge pull request #1073 from WingTangWong/wing-fix-float-delta
+aaaf8fe8dd Merge pull request #1068 from darkjavi/Marlin_v1
+af3e4d7510 Update line 627 ,wrong number on thermistortables
+0733825fb1 Merge pull request #1099 from Fourmi/Marlin_v1
+ca30aee903 Fix "add_homeing" to "add_homing" to match changes
+256c25a843 Merge pull request #1101 from MattStultz/patch-1
+110c5dcf23 Fixed typo.
+058e446531 Merge pull request #1037 from filipmu/Filament-Sensor
+724197454c Merge pull request #1104 from ch100/Marlin_v1
+b81021f475 Merge https://github.com/ErikZalm/Marlin into Marlin_v1
+377dfb182f Updated example configurations for Delta printers
+443b648863 Merge pull request #1133 from monkeydave/update_delta_config
+b014fd1ad2 Merge pull request #2 from ErikZalm/Marlin_v1
+df7c80335a Merge pull request #3 from filipmu/Marlin_v1
+5c8107bcdd Commented out FILAMENT_SENSOR #define
+4ffdbcbd4e Merge pull request #1138 from filipmu/Marlin_v1
+d84934d8c5 Display Filament Sensor data on 20x4 LCD
+3b1ab84536 Display Filament Sensor data on graphic LCD
+1651ccc0cc Added Filament Sensor to the README
+0d97dec434 Adaption of LCD info screen
+3dc9e478ad Merge pull request #1143 from Silly105/Marlin_v1
+d078c7c29f Add Travis CI config to build Marlin firmware.
+90eb266139 Merge pull request #1148 from krasin/travis
+f40cff59f3 SD Card Alpha Sorting
+cd769781a1 M0-M1 Enhancements
+aa4160ba62 Relocate click ignore code into info screen
+7681711e7e Clear LCD to welcome_msg if not printing
+87fc00c182 Expand on More RAM concept, address minor bugs
+0d35b1d0b8 Allow negative values in menus
+6901445592 Improvements, more SORT_USES_MORE_RAM
+eaa788e076 Completed SORT_USES_MORE_RAM implementation
+d407a43ac1 Ignore S and P if no value >0 is included.
+5714f64927 get latest Marlin_v1 changes
+92e21d3ee2 M0-M1 Enhancements
+3f54c9ba33 Relocate click ignore code into info screen
+d12b24758a Clear LCD to welcome_msg if not printing
+12b51d6060 Ignore S and P if no value >0 is included.
+5874852501 get latest Marlin_v1 changes
+aad336eb81 Merge branch 'lcd_wait_better' of https://github.com/thinkyhead/Marlin into lcd_wait_better
+662fe8288b kill DEADJOE
+14187dae6c SD Card Alpha Sorting
+2b54eeb897 Expand on More RAM concept, address minor bugs
+725ba8d01e Improvements, more SORT_USES_MORE_RAM
+8ebefe6d35 Completed SORT_USES_MORE_RAM implementation
+2427d0b683 Merge branch 'sd_sorting' of https://github.com/thinkyhead/Marlin into sd_sorting
+433ac29d31 Updated a bit of spanish language
+1b7c065055 Merge pull request #1158 from elgambitero/patch-2
+5a8b3a84ae Merge pull request #1155 from thinkyhead/lcd_wait_better
+7562183efc Skip over spaces first
+1977b4490f Merge pull request #1159 from thinkyhead/lcd_wait_better
+ff38d7c293 Print a message when printing is aborted
+181e487f13 Print a message when printing is aborted
+061c1fcd93 Merge branch 'lcd_abort_message' of https://github.com/thinkyhead/Marlin into lcd_abort_message
+de725bd408 # This is a combination of 4 commits. # The first commit's message is: SD Card Alpha Sorting
+b4e287fe8e Completed SORT_USES_MORE_RAM implementation
+f05928d886 Merge branch 'sd_sorting' of https://github.com/thinkyhead/Marlin into sd_sorting
+e5a334b83a Use SdFatUtil::FreeRam() for freeMemory() if there
+c429a4b3ec Toshiba Stepper Driver support
+edfcf3b527 Toshiba Stepper Driver support
+2f9ed1777d Merge pull request #1168 from boelle/Marlin_v1
+64139f5e5a Merge https://github.com/ErikZalm/Marlin into Marlin_v1
+1ba7c31395 Adding Melzi board
+599530902d Polish up a little...
+485ca10bc3 Disable SDCARD_SORT_ALPHA by default
+2ef0669b19 Split do_blocking_move() to XY and Z sections to make sure that the Z homing feedrate is not exceeded
+3ebfd29312 Print a message when printing is aborted
+600b4f0590 Merge branch 'lcd_abort_message' of https://github.com/thinkyhead/Marlin into lcd_abort_message
+ae1a698263 Use SdFatUtil::FreeRam() for freeMemory() if there
+af0549bfd2 Merge branch 'sd_freemem' of https://github.com/thinkyhead/Marlin into sd_freemem
+0cbbba08bd SD Card Alpha Sorting
+785143a013 Expand on More RAM concept, address minor bugs
+ae081d0fe0 Improvements, more SORT_USES_MORE_RAM
+cf749dbeda Completed SORT_USES_MORE_RAM implementation
+8196b36ad9 SD Card Alpha Sorting
+b6ffea612a Expand on More RAM concept, address minor bugs
+c9486ebb85 Improvements, more SORT_USES_MORE_RAM
+a12eec33e2 Completed SORT_USES_MORE_RAM implementation
+6599adc184 Polish up a little...
+29e854c535 Disable SDCARD_SORT_ALPHA by default
+467f0ea6b7 Merge branch 'sd_sorting' of https://github.com/thinkyhead/Marlin into sd_sorting
+1fad8e6a81 Proper long file name var
+d088b5f30f Remove debug echo
+4297bcc89f Merge pull request #1154 from thinkyhead/sd_sorting
+ab355a90d3 Revert "SD Sort and Buffer"
+00f279376f Merge pull request #1173 from boelle/Marlin_v1
+91d740e128 Merge pull request #1141 from filipmu/Filament-Sensor
+0b310ab6c5 Merge pull request #1153 from xinfab/negative_values_in_menu
+3ac8bd8de7 Merge pull request #1013 from mattrobbo10/Marlin_v1
+e83cfc0a62 Merge pull request #1163 from thinkyhead/lcd_abort_message
+31ca3de72f Merge pull request #819 from neildarlow/Marlin_v1
+341c7d080d Merge pull request #996 from cbane/arduino-1.5
+280504e2e0 Merge pull request #908 from alromh87/Marlin_v1
+b17b8583af adding hardware files for OMC
+4d61287807 Merge pull request #1186 from boelle/Marlin_v1
+b726511a3b A few constants where they belong
+f074706d2e And one more...
+60598b4cdd A few constants where they belong
+e4b98011cf And one more...
+39b47ef5b0 Merge branch 'fix_constants' of https://github.com/thinkyhead/Marlin into fix_constants
+f21cce0b28 Rebase to Marlin_v1
+0450e83fa5 Use SdFatUtil::FreeRam() for freeMemory() if there
+28c3ad291a Merge branch 'sd_freemem' of https://github.com/thinkyhead/Marlin into sd_freemem
+140ce06692 Merge pull request #1188 from thinkyhead/lcd_longname
+49791949af Wrap call to flush_presort
+bd22405412 Merge pull request #1190 from thinkyhead/sd_sorting
+e69313fc2b Reduce dogm lcd code
+63e1665fa9 Reduce ultralcd.cpp redundancies
+1857e611d3 Other small tweaks
+07c6b5ab71 Using axis constants
+842da54e68 Merge pull request #1187 from thinkyhead/fix_constants
+a9c334e8bc Merge pull request #1191 from thinkyhead/code_shrink
+0c06e97e98 Split up languages.h, use ISO codes
+e970461adb Clean up, move unused to the bottom, add headings
+174f8d3631 Added example configs for printers from http://tvrrug.org.uk/
+72da53c613 Merge pull request #1194 from boelle/Marlin_v1
+0e23105e1e Defines for electronics boards
+d201fe74c6 Clean up configs
+bd25e7393b Merge pull request #1192 from thinkyhead/split_language
+f83d0f2a68 Defines for electronics boards
+3b1f186c0c Clean up configs
+61d8e40712 Merge branch 'board_defines' of https://github.com/thinkyhead/Marlin into board_defines
+6880e93b75 Happy configs
+7458bfe297 Merge pull request #1195 from thinkyhead/board_defines
+17de96ace7 Merge branch 'Marlin_v1' into revert-1154-sd_sorting
+a5c059dcf5 Merge branch 'revert-1154-sd_sorting' into Marlin_v1
+acc0e75279 Fixes commands not being acknowledged in the same order they are received in
+03e489aaad Merge pull request #1197 from foosel/fix/issue_1147
+4ebeb14026 Update README.md
+81568c3c6d Update Configuration.h
+7464d3c96a Update ConfigurationStore.cpp
+cfe80e1def Update vector_3.h
+825c46024d Update vector_3.cpp
+58c4473bea Update Servo.cpp
+f21c65918f Update Servo.h
+4315c2547a Update Marlin_main.cpp
+ac204028e7 Update planner.cpp
+e99f24ff2f Update planner.h
+6325968a39 Update qr_solve.cpp
+39d28a9bbf Update qr_solve.h
+b086394178 Fix syntax errors in #ifdef.
+1e865e5df7 Merge pull request #1199 from ei8htohms/Marlin_v1
+5e7bd2dc87 Merge pull request #1200 from chertykov/Marlin_v1
+889d7ba218 Merge pull request #1177 from martin-pr/probing_z_speed
+60628864ca Merge pull request #1167 from thinkyhead/sd_freemem
+d74aabf259 Revert "Change Auto_Bed_Leveling to Auto_Bed_Compensation"
+a8d8ef7534 Merge pull request #1208 from ErikZalm/revert-1199-Marlin_v1
+dc64175d77 Update README.md
+b792b74036 added note about stale branches
+203df3533d Merge pull request #1214 from ErikZalm/Marlin_v1
+af7fbcc026 Merge pull request #1213 from ErikZalm/Marlin_v1
+5f36ed2c4c Merge pull request #1215 from ErikZalm/Marlin-v1-bug-fixing
+fe8d8beb7a Merge pull request #1216 from ErikZalm/Marlin-v1-stable
+7db943b147 Language change implementation revamped. Didn't work as intended with Arduino IDE.
+d254651146 Fix spacing
+f390b3f314 Patch to make Z look more like X and Y on UltraLCD
+f80a602783 Least stack-usage self-contained ftostr32np()
+e83ecec809 As it should be
+bdf2c94bff Least stack-usage self-contained ftostr32np()
+d080027ff4 ftostr32np > ftostr32sp
+f05225a271 Update README.md
+7250ec4337 Some clarification and markdown for boelle notes
+529c937943 Merge pull request #1230 from thinkyhead/readme_tweak
+7667949aca Fixed BABYSTEPPING feature
+7ecb7cbd46 Added "auto fan" checks to PID_autotune
+5f555140be Update README.md
+45336bb6c0 Update README.md
+6efc4f3abf Merge pull request #1239 from ErikZalm/Marlin_v1
+f00a202246 Update README.md
+c9b8435749 heater.c: Limit PID I term with conditional integration.
+984177c40c temperature.cpp:Add PID Conditional integration on heated bed.
+cf52c48d19 Configuration.m: Set PID_INTEGRAL_DRIVE_MAX from PID_MAX from BANG_MAX.
+050ca9ca13 Move initialization of errormagic[] and echomagic[] to Marlin_main.cpp
+2f467e2797 LCD Progress Bar
+f7ffd53bac Merge pull request #1251 from thinkyhead/progress_bar
+23e768dffa Merge pull request #1250 from chertykov/Development
+9c07d28bd6 Merge pull request #1249 from drf5n/PID_CI_v2
+0d957872a0 Merge pull request #1234 from gregrebholz/issue_1069
+c9f60183a9 Merge pull request #1233 from NarimaanV/Development
+9eb6df17a7 Consider negative Z Offsets when auto bed leveling is active
+73b7b08f2c Merge pull request #1253 from lobermann/Development_AutoLevelOffset
+3afe66bb0c Fix issues #1248, #1240
+0504c02153 Update README.md
+6e42c9e305 Add fwretract settings to M503 output
+0468f81950 Update for pull request #837
+b2000b7055 Merge pull request #1255 from mattsch/503_fwretract_dev_branch
+a0959366af Update README.md
+95429a4108 Delete .travis.yml
+60959f196f Delete .gitignore
+a5ed3e96f2 Update README.md
+ec33df0554 Merge branch 'SAV-MkI_merge' into Development
+c1df713e4d Merge pull request #1258 from fmalpartida/Development
+cb12161191 Add Filament menu and add Filament/Retract settings to config store.
+d60efc3b5d Fix syntax error caused by previous changes.
+4122de9d17 change filament issue
+d1995aec7a Rename ignore_blocks_queued
+78167ce439 Merge pull request #1264 from Wurstnase/Development
+8a6f098cc6 Expand manage_inactivity #1264
+053b541de8 Merge pull request #1265 from Wurstnase/Development
+f24c5d82e3 Update Marlin_main.cpp
+10ad9f1062 Addes servo0 pin ultimaker
+5b336a4cdb Delta calibration menu based on http://minow.blogspot.com/index.html#4918805519571907051 To test/enable, uncomment the #define DELTA_CALIBRATION_MENU in Configuration.h
+cb047e9070 Actual menu change. Moved menu logic to not be shown unless not currently printing. (untested but straight-forward, printer in a bad state currently)
+f4ce235589 Merge pull request #1266 from RobotCaleb/DeltaCalMenu
+e6774fb7d2 Using the new language implementation wasn't behaving as expected.
+236db44669 Fix spacing
+2309c9f43a Merge branch 'LanguageFix' of github.com:RobotCaleb/Marlin-Kossel_Clear into LanguageFix
+67fd8f0727 Merge pull request #1267 from RobotCaleb/LanguageFix
+9453bb13c2 Logic error correction
+2bf6d804c4 Merge pull request #1269 from Wurstnase/Development
+991a74b75b Move delta calibration menu to sample delta configuration. Turn off by default.
+0268c03a75 Merge pull request #1271 from RobotCaleb/DeltaCalMenu
+d02daec08f fixed compilation
+3d1da45f3e Update Marlin.h
+a2109cb492 Patch to make Z look more like X and Y on UltraLCD
+449dad71f2 Least stack-usage self-contained ftostr32np()
+d1f21d1189 As it should be
+10e1b6ef8b Least stack-usage self-contained ftostr32np()
+e7db8ee9e5 ftostr32np > ftostr32sp
+6c591a97a1 Merge branch 'lcd_z_reformat' of https://github.com/thinkyhead/Marlin into lcd_z_reformat
+2ec2bf1564 Fix regressions affecting compilation
+878b5557a1 Merge pull request #1276 from thinkyhead/lcd_z_reformat
+692a01b1c7 Merge pull request #1277 from thinkyhead/fix_regressions
+6b82415c81 Update pins.h
+217186d7bc Merge pull request #1281 from Grogyan/patch-2
+2701dd8a17 Due to the fix for #1248, X and Y probe offsets must not be floats.
+6583bb781d temperature.cpp: Fix typo of MAX_BED_PID to MAX_BED_POWER.
+625860f086 temperature.cpp: Fix typo of PID_MAX to MAX_BED_POWER for the bed.
+80b17ab573 Merge pull request #1285 from drf5n/PID_CI_v2
+ae12ad0d6c Fix typo, PID_BED_POWER -> MAX_BED_POWER
+975810fb4a Merge pull request #1286 from alhirzel/Development
+a18b625534 Merge pull request #1261 from wgm4321/Development
+63da6900b0 Merge pull request #1282 from vandarin/Development
+1d5d853c9a temperature.cpp: Fix typo of MAX_BED_PID to MAX_BED_POWER.
+f3e503e725 temperature.cpp: Fix typo of PID_MAX to MAX_BED_POWER for the bed.
+ecda6cdc0a Fix typo, PID_BED_POWER -> MAX_BED_POWER
+edac64e7d2 Add Filament menu and add Filament/Retract settings to config store.
+b32be2dc64 Fix syntax error caused by previous changes.
+1f520a5a8c Due to the fix for #1248, X and Y probe offsets must not be floats.
+f3209bba34 Merge branch 'Development' of https://github.com/alhirzel/Marlin into Development
+eed451e034 rework analogInputToDigitalPin definition
+b5e50cdd4e Move scripts and documentation to subfolders
+912ed155c5 Merge pull request #1292 from thinkyhead/docs_and_scripts
+f36fd3ddec Merge branch 'Development' of https://github.com/ErikZalm/Marlin into Development
+3f9707aa33 Added .gitignore back into repo
+86cc22d639 Readd .travis.yml, change build enviroment to use ino instead of gcc
+21cc188272 Updated .travis.yml for ErikZalm branch pull request
+9d9a2d75ef Merge pull request #1295 from monkeydave/Re-add_gitignore
+206b7f4e92 Update .gitignore
+b5c6f11e41 Merge pull request #1297 from monkeydave/Readd-Travis-CI
+be81dfa3de Updated .travis.yml so others forks will also compile
+07b85f8b92 Added compile checks for lots of defines in Configuration.h
+f8aa5ff771 Fix for cant compile when REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER defined
+04fb34c7ff Add English defines for filament menu to non-English to prevent compile errors until translated
+9d57c376db Commented out configs that are failing with no easy fixes for the moment
+3d9f4ac757 Merge pull request #1303 from wgm4321/Development
+efca4afab2 Merge pull request #1304 from monkeydave/Travis-CI
+c5f138ea07 Merge pull request #1291 from alhirzel/Development
+30248214c7 temp runaway: proper cast to prevent any overflow.
+d2b6e62996 Merge pull request #1309 from philfifi/fix_temp_runaway
+9472bbe51d issue 968 for dev branch
+00e4bc9f54 Merge pull request #1311 from i-make-robots/Development
+2b9722f387 Add "Detailed Z Probe" menu item with ABL is defined.
+dd7e4ee97f Make sure  volumetric multipliers are recalc'ed during menu enable/disable of mm3
+ec4681ab6b Revert "Add "Detailed Z Probe" menu item with ABL is defined."
+f24dda9700 Revert "Make sure  volumetric multipliers are recalc'ed during menu enable/disable of mm3"
+a19f2f8ae7 Disable volumetric menu item due to missing recalc of of multipliers when enabled/disabled
+067b509479 Re-enable filament menu with recalc fix when enabling/disabling mm3
+538231edfd cosmetic whitespace cleanup and comments added/updated
+fb0996b5db improved output aligment and precision
+21205cc3d8 more cleanups in the termistorTable generation script
+95f4a55820 refactored termistor table calculation to be in line with wikipedia's article about Steinhart-Hart coefficients
+81363bc441 more cleanups
+4e02aff9b5 automatically determine min/max temp for terminator
+f7e65935fb make use of power operator
+df17a6a1b4 fix #1305 by proposed workaround (thanks gaby64)
+f25e793cff rename stepper lookup table scipt to be consistent with termistor lookup table script
+5a5b95edbf Merge pull request #1319 from stv0g/Development
+672f764b4d replaced ASCII GPL v3 license by markdown version moved new COPYING file to top-level directory to make it more visible and remove clutter from Marlin subduer
+93c8b2a40b added irc channel
+358759cb52 Update README.md
+2dfdf4b55c Merge pull request #1320 from stv0g/Development
+4ffecdbf7d Merge pull request #1313 from wgm4321/Development
+b3f2b30347 Update README.md
+d7a2dd676e Update README.md
+028fe129a5 Update README.md
+80afded132 Update README.md
+1a57644b0c Update README.md
+6730335657 Update Configuration.h
+038fccd7a1 I have added some code in the "temperature.cpp" for have the possibility of control the time of the states with the heater drived by relays, with this feature now it is possible use PID function in conjunction with relay to control the temperature. I have made some tests and the temperature stay always in the range of +-1°C from the setted temp. There is the possibility of turn on this features adding "#define SLOW_PWM_HEATERS" in Configuration.h
+422a958a34 Fix CoreXY speed calculation
+c7e2d73039 Merge branch 'development'
+501fe97c00 changed some stuff near IDE
+380c9abf16 removed note on Ramps
+1c33310363 Update README.md
+9852252bca Update README.md
+5cfe13f240 Correct some mistakes
+2d7d43b64c Merge pull request #1 from DinoMesina/master
+e9ddd21aef Update README.md
+addf52fd4a Merge pull request #1328 from DinoMesina/development
+8f9067faa6 Added marlin logos. (Designed by Ahmet Cem TURAN)
+7ae548cf34 Update Marlin Firmware URL
+8813978766 Merge pull request #1330 from avluis/feature-request
+b291a422e9 added square png version of logo
+0e760274bd changed reprap logo to marlin logo
+3c9e6b7b62 added link for pic to hex converter
+8d7bfd03d8 moved/renamed documentation stuff to top-level directory
+72912851b8 Merge pull request #1331 from stv0g/Development
+3d2b471c1a added link to google hangout
+269ec9f87f Fix grammar/typos in new Configuration.h option
+3a30d45c2e Revert "issue 968 for dev branch"
+0f5cccca4f Merge pull request #1334 from MarlinFirmware/revert-1311-Development
+da192c521f Merge pull request #1333 from andrewsil1/development
+0d8c6f8673 Show the latest README on the default branch
+ac36cd7258 Add documentation logo graphics to Release
+5ce0bf057e Add Version in Configuration.h for Release-branch
+c411cb18d3 More active authors
+77fc28c761 Hardtung
+df46297c6d More authors
+fed690d9ac Update language_pt.h
+de70315dc7 Merge pull request #2110 from YanFM/patch-1
+7824047422 Notes about the Release branch in its README.md
+9f4201b96d Languages of devs not intended as links
+eaeccf2699 Update version strings to 1.0.2
+788cb980fa Update for German developers languages.
+4ccf7c5e9a Merge pull request #2196 from AnHardt/102
+1e7b286add Fix thermal_runaway_protection()  (PR#2266)
+453cbfe550 THERMAL_RUNAWAY_PROTECTION for bed alone in Release (PR#2284)
+8375b82c2e Remove Azteeg X3 Pro conflict of Fan and Heater_1 (PR#2318)
+32d431fe63 Added correct dutch translation for calibrate.
+04df544571 Update language.h
+b1dc722c83 Merge Correct Dutch language (PR#2330)
+45dd199c28 Add some translations
+a7d4d04c33 Merge pull request #2429 from mkile/patch-1
+f874fc8b63 Remove usage restriction to comply with GPL
+0b8858fc60 Update README.md
+559f4f1cba New Repository for Development
+6aeeb4e61f Typo
+5adb162204 Show "bed" instead of "9" on bed thermal error (PR#2584)
+ddf77aa68a Mac & Linux Addons
+5db22a3da5 PlatformIO Addons
+0c9d142c4f  Addons for Arduino IDE 1.6
+ea05d60c13 USE_AUTOMATIC_VERSIONING  hook
+9b7ca2157b Provide detailed and short version numbers
+4bc50553d0 Windows doesn’t have AUTOMATIC VERSIONING yet
+fff4f29dfc Supply default version for builds from Archives
+e4d911dd5e Update thermistortables for Hisens Thermistor (PR#2588)
+67d7ced009 Issue in fan control with multiple extruders (PR#2597)
+f00da2c49f Explicit LICENSE file
+154c5a7d2b Add Roxanne to dev team
+f538520af3 Create language_cz.h (PR#2616)
+cfb118eb3c Update LICENSE
+fbd2709604 Corrections to Portuguese translations
+b3e60b4c62 Update reference to out wiki
+8906c93ce5 Fix conflict with fpos_t typedef
+637f14eab1 Merge pull request #5114 from thinkyhead/fix_fpos_conflict_102
+8fa34d8858 Rename pde to avoid conflict
+dbde473433 Update README.md for 1.0.2-2
+9495731c57 Disable integration testing
