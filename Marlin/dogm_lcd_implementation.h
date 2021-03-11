@@ -49,19 +49,12 @@
 #define LCD_CLASS LiquidCrystal
 #endif
 */
-#if LANGUAGE_CHOICE == cn
-// DOGM parameters (size in pixels)
-#define DOG_CHAR_WIDTH			11
-#define DOG_CHAR_HEIGHT			12
-#define DOG_CHAR_WIDTH_LARGE	11
-#define DOG_CHAR_HEIGHT_LARGE	12
-#else
+
 // DOGM parameters (size in pixels)
 #define DOG_CHAR_WIDTH			6
 #define DOG_CHAR_HEIGHT			12
 #define DOG_CHAR_WIDTH_LARGE	9
 #define DOG_CHAR_HEIGHT_LARGE	18
-#endif
 
 #define START_ROW				0
 
@@ -87,12 +80,6 @@ U8GLIB_ST7920_128X64_RRD u8g(0);
 #elif defined(MAKRPANEL)
 // The MaKrPanel display, ST7565 controller as well
 U8GLIB_NHD_C12864 u8g(DOGLCD_CS, DOGLCD_A0);
-#elif defined(MINIPANEL)
-// The MINIPanel display
-U8GLIB_MINI12864 u8g(DOGLCD_CS, DOGLCD_A0);
-#elif defined(MULTIPANEL)
-// The MULTIPanel OLED display
-U8GLIB_SSD1309_128X64 u8g(DOGLCD_CS, DOGLCD_A0);
 #else
 // for regular DOGM128 display with HW-SPI
 U8GLIB_DOGM128 u8g(DOGLCD_CS, DOGLCD_A0);	// HW-SPI Com: CS, A0
@@ -105,9 +92,7 @@ static void lcd_implementation_init()
 	digitalWrite(LCD_PIN_BL, HIGH);
 #endif
 
-#ifndef MINIPANEL//setContrast not working for Mini Panel
         u8g.setContrast(lcd_contrast);	
-#endif
 	//  Uncomment this if you have the first generation (V1.10) of STBs board
 	//  pinMode(17, OUTPUT);	// Enable LCD backlight
 	//  digitalWrite(17, HIGH);
@@ -144,12 +129,6 @@ static void lcd_implementation_init()
 			u8g.drawStr(62,19,"V1.0.2");
 			u8g.setFont(u8g_font_6x10_marlin);
 			u8g.drawStr(62,28,"by ErikZalm");
-  #if LANGUAGE_CHOICE == cn
-      u8g.setFont(chinese);
-      u8g.drawStr(62,40,"\x84\x85\x86\x87 By");
-			u8g.drawStr(62,52,"\x7f\x80\x81\x82\x83");
-			u8g.drawStr(62,63,"MakerLab.me");
-  #else
 			u8g.drawStr(62,41,"DOGM128 LCD");
 			u8g.setFont(u8g_font_5x8);
 			u8g.drawStr(62,48,"enhancements");
@@ -158,11 +137,6 @@ static void lcd_implementation_init()
 			u8g.drawStr(62,61,"uses u");
 			u8g.drawStr90(92,57,"8");
 			u8g.drawStr(100,61,"glib");
-  #endif
-			//u8g.setFont(u8g_font_5x8);
-			//u8g.drawStr(62,61,"uses u");
-			//u8g.drawStr90(92,57,"8");
-			//u8g.drawStr(100,61,"glib");
 	   } while( u8g.nextPage() );
 }
 
@@ -311,10 +285,6 @@ static void lcd_implementation_status_screen()
  u8g.print('%');
 
  // Status line
-#if LANGUAGE_CHOICE == cn
- u8g.setFont(chinese);
- u8g.setPrintPos(0,63);
-#else
  u8g.setFont(FONT_STATUSMENU);
  u8g.setPrintPos(0,61);
  #ifndef FILAMENT_LCD_DISPLAY
@@ -344,11 +314,7 @@ static void lcd_implementation_drawmenu_generic(uint8_t row, const char* pstr, c
 		if ((pre_char == '>') || (pre_char == LCD_STR_UPLEVEL[0] ))
 		   {
 			u8g.setColorIndex(1);		// black on white
-#if LANGUAGE_CHOICE == cn
-			u8g.drawBox (0, row*DOG_CHAR_HEIGHT + 2, 128, DOG_CHAR_HEIGHT);
-#else
 			u8g.drawBox (0, row*DOG_CHAR_HEIGHT + 3, 128, DOG_CHAR_HEIGHT);
-#endif
 			u8g.setColorIndex(0);		// following text must be white on black
 		   } else u8g.setColorIndex(1); // unmarked text is black on white
 		
@@ -375,14 +341,8 @@ static void _drawmenu_setting_edit_generic(uint8_t row, const char* pstr, char p
   char c;
   uint8_t n = LCD_WIDTH - 1 - 2 - (pgm ? strlen_P(data) : strlen(data));
 		
-        pstr++;
-        n--;
-    }
-		u8g.print(':');
-
-    while(n--){
-					u8g.print(' ');
-			  }
+  u8g.setPrintPos(0 * DOG_CHAR_WIDTH, (row + 1) * DOG_CHAR_HEIGHT);
+  u8g.print(pre_char);
 
   while( (c = pgm_read_byte(pstr)) != '\0' ) {
     u8g.print(c);
@@ -442,18 +402,10 @@ static void _drawmenu_setting_edit_generic(uint8_t row, const char* pstr, char p
 void lcd_implementation_drawedit(const char* pstr, char* value)
 {
 		u8g.setPrintPos(0 * DOG_CHAR_WIDTH_LARGE, (u8g.getHeight() - 1 - DOG_CHAR_HEIGHT_LARGE) - (1 * DOG_CHAR_HEIGHT_LARGE) - START_ROW );
-  #if LANGUAGE_CHOICE == cn 
-    u8g.setFont(chinese);
-  #else
-    u8g.setFont(u8g_font_9x18);
-  #endif
+		u8g.setFont(u8g_font_9x18);
 		lcd_printPGM(pstr);
 		u8g.print(':');
-  #if LANGUAGE_CHOICE == cn 
-		u8g.setPrintPos((12 - strlen(value)) * DOG_CHAR_WIDTH_LARGE, (u8g.getHeight() - 1 - DOG_CHAR_HEIGHT_LARGE) - (1 * DOG_CHAR_HEIGHT_LARGE) - START_ROW );
-  #else
 		u8g.setPrintPos((14 - strlen(value)) * DOG_CHAR_WIDTH_LARGE, (u8g.getHeight() - 1 - DOG_CHAR_HEIGHT_LARGE) - (1 * DOG_CHAR_HEIGHT_LARGE) - START_ROW );
-  #endif
 		u8g.print(value);
 }
 
