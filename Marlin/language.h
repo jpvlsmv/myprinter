@@ -46,11 +46,8 @@
   #define MACHINE_NAME "Rumba"
   #define FIRMWARE_URL "https://github.com/MarlinFirmware/Marlin"
 #elif MB(3DRAG)
-	#define MACHINE_NAME "3Drag"
-	#define FIRMWARE_URL "http://3dprint.elettronicain.it/"
-#elif MOTHERBOARD == 310
-	#define MACHINE_NAME "MeBot"
-	#define FIRMWARE_URL "http://makerlab.me/"
+  #define MACHINE_NAME "3Drag"
+  #define FIRMWARE_URL "http://3dprint.elettronicain.it/"
 #elif MB(5DPRINT)
   #define MACHINE_NAME "Makibox"
   #define FIRMWARE_URL "https://github.com/MarlinFirmware/Marlin"

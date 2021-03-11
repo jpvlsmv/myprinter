@@ -3271,7 +3271,6 @@ Sigma_Exit:
      }
     break;
 #ifdef DOGLCD
-#if !defined(MINIPANEL)
     case 250: // M250  Set LCD contrast value: C<value> (value 0..63)
      {
 	  if (code_seen('C')) {
@@ -3282,7 +3281,6 @@ Sigma_Exit:
           SERIAL_PROTOCOLLN("");
      }
     break;
-#endif
 #endif
     #ifdef PREVENT_DANGEROUS_EXTRUDE
     case 302: // allow cold extrudes, or set the minimum extrude temperature

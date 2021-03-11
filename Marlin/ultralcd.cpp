@@ -61,9 +61,7 @@ static void lcd_control_temperature_preheat_abs_settings_menu();
 static void lcd_control_motion_menu();
 static void lcd_control_volumetric_menu();
 #ifdef DOGLCD
-#if !defined(MINIPANEL)
 static void lcd_set_contrast();
-#endif
 #endif
 static void lcd_control_retract_menu();
 static void lcd_sdcard_menu();
@@ -898,7 +896,6 @@ static void lcd_control_volumetric_menu()
 }
 
 #ifdef DOGLCD
-#if !defined(MINIPANEL)
 static void lcd_set_contrast()
 {
     if (encoderPosition != 0)
@@ -916,7 +913,6 @@ static void lcd_set_contrast()
     }
     if (LCD_CLICKED) lcd_goto_menu(lcd_control_menu);
 }
-#endif
 #endif
 
 #ifdef FWRETRACT
@@ -1255,11 +1251,7 @@ void lcd_update()
         u8g.firstPage();
         do
         {
-#if LANGUAGE_CHOICE == cn
-            u8g.setFont(chinese);
-#else
             u8g.setFont(u8g_font_6x10_marlin);
-#endif
             u8g.setPrintPos(125,0);
             if (blink % 2) u8g.setColorIndex(1); else u8g.setColorIndex(0); // Set color for the alive dot
             u8g.drawPixel(127,63); // draw alive dot
@@ -1342,13 +1334,11 @@ void lcd_reset_alert_level()
 }
 
 #ifdef DOGLCD
-#if !defined(MINIPANEL)
 void lcd_setcontrast(uint8_t value)
 {
     lcd_contrast = value & 63;
     u8g.setContrast(lcd_contrast);
 }
-#endif
 #endif
 
 #ifdef ULTIPANEL
